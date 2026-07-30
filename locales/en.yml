@@ -1,5 +1,3 @@
 en:
   theme_metadata:
-    description: ''
-    settings:
-      example_setting: A description of a setting.
+    description: "The forkable base theme for the Canvas theme template."
