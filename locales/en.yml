@@ -5,17 +5,12 @@ en:
     banner:
       title: "Welcome to Parch Linux"
       subtitle: "A fast, lightweight, and beautiful Linux distribution based on Arch Linux."
-      download: "Download Parch"
+      download: "Download ISO"
       wiki: "Wiki & Docs"
       github: "GitHub"
-      telegram: "Community Chat"
+      telegram: "Telegram"
       status: "Arch-Based Rolling Release"
     codeblock:
       terminal_title: "parch-terminal"
       copy: "Copy"
       copied: "Copied!"
-    nav:
-      website: "Parch OS"
-      wiki: "Wiki"
-      packages: "Packages"
-      github: "GitHub"

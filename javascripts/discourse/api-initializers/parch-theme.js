@@ -71,46 +71,8 @@ export default apiInitializer((api) => {
     { id: "parch-terminal-decorator" }
   );
 
-  // Helper: Inject Header Quick Links
-  const injectHeaderLinks = () => {
-    if (!settings.custom_header_links) {
-      return;
-    }
-
-    const headerContents = document.querySelector(".d-header .contents");
-    if (headerContents && !document.querySelector(".parch-header-links")) {
-      const linksWrapper = document.createElement("div");
-      linksWrapper.className = "parch-header-links";
-
-      const websiteText = i18n(themePrefix("parch_theme.nav.website")) || "Parch OS";
-      const wikiText = i18n(themePrefix("parch_theme.nav.wiki")) || "Wiki";
-      const githubText = i18n(themePrefix("parch_theme.nav.github")) || "GitHub";
-
-      linksWrapper.innerHTML = `
-        <a class="parch-nav-item" href="https://parchlinux.com" target="_blank" rel="noopener noreferrer" title="Parch Linux Website">
-          ${websiteText}
-        </a>
-        <a class="parch-nav-item" href="${settings.banner_wiki_url || "https://wiki.parchlinux.com"}" target="_blank" rel="noopener noreferrer" title="Documentation & Wiki">
-          ${wikiText}
-        </a>
-        <a class="parch-nav-item" href="${settings.banner_github_url || "https://github.com/parchlinux"}" target="_blank" rel="noopener noreferrer" title="GitHub Repositories">
-          ${githubText}
-        </a>
-      `;
-
-      const titleOrLogo = headerContents.querySelector(".title, .d-header-brand, .home-logo-wrapper");
-      if (titleOrLogo) {
-        titleOrLogo.after(linksWrapper);
-      } else {
-        headerContents.prepend(linksWrapper);
-      }
-    }
-  };
-
-  // 2. Render Parch Community Hero Banner and Header Links on Page Change
+  // 2. Render Parch Community Hero Banner on Page Change
   api.onPageChange((url) => {
-    injectHeaderLinks();
-
     if (!settings.enable_parch_banner) {
       return;
     }
@@ -151,7 +113,7 @@ export default apiInitializer((api) => {
           <div class="parch-banner-actions">
             <a href="${settings.banner_download_url}" class="btn-parch-primary" target="_blank" rel="noopener noreferrer">
               ${ICONS.download}
-              <span>${i18n(themePrefix("parch_theme.banner.download")) || "Download Parch"}</span>
+              <span>${i18n(themePrefix("parch_theme.banner.download")) || "Download ISO"}</span>
             </a>
             <a href="${settings.banner_wiki_url}" class="btn-parch-secondary" target="_blank" rel="noopener noreferrer">
               ${ICONS.docs}
@@ -163,7 +125,7 @@ export default apiInitializer((api) => {
             </a>
             <a href="${settings.banner_telegram_url}" class="btn-parch-secondary" target="_blank" rel="noopener noreferrer">
               ${ICONS.chat}
-              <span>${i18n(themePrefix("parch_theme.banner.telegram")) || "Community Chat"}</span>
+              <span>${i18n(themePrefix("parch_theme.banner.telegram")) || "Telegram"}</span>
             </a>
           </div>
         `;

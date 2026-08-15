@@ -68,43 +68,9 @@ h1, h2, h3, h4, h5, h6,
     }
 
     #site-logo {
-      max-height: 36px;
+      max-height: 38px;
       width: auto;
       object-fit: contain;
-    }
-  }
-
-  /* Header Custom Navigation Links */
-  .parch-header-links {
-    display: flex;
-    align-items: center;
-    gap: 0.35rem;
-    margin-left: 1.5rem;
-
-    .parch-nav-item {
-      font-size: 0.86rem;
-      font-weight: 500;
-      color: var(--header_primary);
-      opacity: 0.75;
-      padding: 0.4rem 0.75rem;
-      border-radius: var(--d-border-radius);
-      transition: all var(--parch-trans-fast);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      text-decoration: none;
-
-      svg {
-        width: 15px;
-        height: 15px;
-        opacity: 0.8;
-      }
-
-      &:hover {
-        opacity: 1;
-        background: var(--primary-low);
-        color: var(--parch-cyan);
-      }
     }
   }
 
@@ -206,10 +172,6 @@ h1, h2, h3, h4, h5, h6,
         margin: 0 0 0.6rem 0;
         line-height: 1.25;
         color: var(--primary);
-
-        .highlight {
-          color: var(--parch-cyan);
-        }
       }
 
       p {
@@ -249,20 +211,21 @@ h1, h2, h3, h4, h5, h6,
       background: var(--parch-gradient-brand);
       color: #0b0f14 !important;
       font-weight: 600;
-      font-size: 0.9rem;
-      padding: 0.58rem 1.25rem;
+      font-size: 0.88rem;
+      padding: 0.52rem 1.15rem;
       border-radius: var(--d-button-border-radius);
       border: none;
       box-shadow: var(--parch-shadow-button);
       display: inline-flex;
       align-items: center;
-      gap: 0.55rem;
+      gap: 0.5rem;
       text-decoration: none;
       transition: all var(--parch-trans-fast);
 
       svg {
-        width: 17px;
-        height: 17px;
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
       }
 
       &:hover {
@@ -279,21 +242,22 @@ h1, h2, h3, h4, h5, h6,
       background: var(--primary-very-low);
       color: var(--primary) !important;
       font-weight: 500;
-      font-size: 0.9rem;
-      padding: 0.58rem 1.15rem;
+      font-size: 0.88rem;
+      padding: 0.52rem 1.1rem;
       border-radius: var(--d-button-border-radius);
       border: 1px solid var(--primary-low);
       display: inline-flex;
       align-items: center;
-      gap: 0.55rem;
+      gap: 0.5rem;
       text-decoration: none;
       transition: all var(--parch-trans-fast);
 
       svg {
-        width: 16px;
-        height: 16px;
+        width: 15px;
+        height: 15px;
         color: var(--primary-medium);
         transition: color var(--parch-trans-fast);
+        flex-shrink: 0;
       }
 
       &:hover {
@@ -414,7 +378,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* --------------------------------------------------------------------------
-   5. Linux Terminal Code Blocks & Post Stream
+   5. User Titles, Badges, Post Stream & Terminal Code Blocks
    -------------------------------------------------------------------------- */
 .topic-post {
   article.boxed {
@@ -439,15 +403,43 @@ h1, h2, h3, h4, h5, h6,
       box-shadow: 0 0 0 2px var(--parch-cyan), 0 0 12px rgba(0, 234, 255, 0.3);
     }
   }
+}
 
-  .user-title {
+/* Elegant, Clean User Title & Badges (Persian & LTR friendly) */
+.user-title,
+.names .user-title,
+.user-card .user-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--primary-medium);
+  line-height: 1.4;
+  vertical-align: middle;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-inline-start: 0.4rem;
+  border-radius: 6px;
+
+  /* Persian/Arabic & Latin font smoothing */
+  direction: inherit;
+  unicode-bidi: plaintext;
+
+  /* Refined pill appearance for team/staff titles */
+  &.staff,
+  &[class*="--تیم-"],
+  &[class*="--team-"],
+  &[class*="--admin"],
+  &[class*="--mod"] {
     background: var(--parch-cyan-muted);
     border: 1px solid var(--parch-cyan-border);
-    color: var(--parch-cyan);
-    padding: 0.15rem 0.55rem;
-    border-radius: 12px;
-    font-size: 0.75rem;
+    color: var(--parch-cyan) !important;
+    padding: 0.12rem 0.55rem;
     font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0;
   }
 }
 
