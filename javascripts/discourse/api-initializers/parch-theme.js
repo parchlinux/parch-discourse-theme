@@ -63,7 +63,7 @@ export default apiInitializer((api) => {
         header.appendChild(title);
         header.appendChild(copyBtn);
 
-        pre.parentNode.insertBefore(wrapper, pre);
+        pre.after(wrapper);
         wrapper.appendChild(header);
         wrapper.appendChild(pre);
       });
@@ -98,11 +98,11 @@ export default apiInitializer((api) => {
         </a>
       `;
 
-      const titleOrLogo = headerContents.querySelector(".title") || headerContents.querySelector(".d-header-brand");
-      if (titleOrLogo && titleOrLogo.nextSibling) {
-        headerContents.insertBefore(linksWrapper, titleOrLogo.nextSibling);
+      const titleOrLogo = headerContents.querySelector(".title, .d-header-brand, .home-logo-wrapper");
+      if (titleOrLogo) {
+        titleOrLogo.after(linksWrapper);
       } else {
-        headerContents.appendChild(linksWrapper);
+        headerContents.prepend(linksWrapper);
       }
     }
   };
@@ -168,7 +168,7 @@ export default apiInitializer((api) => {
           </div>
         `;
 
-        mainOutlet.insertBefore(banner, mainOutlet.firstChild);
+        mainOutlet.prepend(banner);
       }
     } else if (!isDiscovery && existingBanner) {
       existingBanner.remove();
