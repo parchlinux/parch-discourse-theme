@@ -1,48 +1,36 @@
 /* ==========================================================================
    Parch Linux Discourse Theme Styles
+   Clean, Modern, Performance-Oriented UI
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. Base & Global Enhancements
+   1. Typography & Global Surface
    -------------------------------------------------------------------------- */
 html {
   font-family: var(--font-family);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.012em;
+}
+
+body {
+  background-color: var(--secondary);
+  color: var(--primary);
+  line-height: 1.6;
 }
 
 h1, h2, h3, h4, h5, h6,
 .title, .topic-title {
   font-family: var(--heading-font-family);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
+  font-weight: 700;
 }
 
-/* Smooth selection */
 ::selection {
-  background: rgba(0, 234, 255, 0.25);
+  background: rgba(0, 234, 255, 0.2);
   color: inherit;
 }
 
-/* Modern Scrollbars */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--primary-low);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-medium);
-}
-
 /* --------------------------------------------------------------------------
-   2. Header & Top Navigation
+   2. Sticky Modern Header
    -------------------------------------------------------------------------- */
 .d-header-wrap {
   position: sticky;
@@ -53,45 +41,36 @@ h1, h2, h3, h4, h5, h6,
 .d-header {
   height: var(--canvas-header-height, 4.25rem);
   background: var(--header_background);
-  backdrop-filter: var(--parch-glass-blur);
-  -webkit-backdrop-filter: var(--parch-glass-blur);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--primary-low);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   position: relative;
-  transition: all var(--parch-transition-smooth);
-
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: var(--parch-gradient-primary);
-    opacity: 0.85;
-  }
+  transition: background-color var(--parch-trans-normal), border-color var(--parch-trans-normal);
 
   .contents {
     display: flex;
     align-items: center;
+    justify-content: space-between;
   }
 
   .title {
     a {
       display: flex;
       align-items: center;
-      gap: 0.6em;
-      transition: opacity var(--parch-transition-fast);
+      gap: 0.75rem;
+      text-decoration: none;
+      transition: opacity var(--parch-trans-fast);
 
       &:hover {
-        opacity: 0.9;
+        opacity: 0.88;
       }
     }
 
     #site-logo {
-      max-height: 40px;
+      max-height: 36px;
+      width: auto;
       object-fit: contain;
-      filter: drop-shadow(0 2px 8px rgba(0, 234, 255, 0.2));
     }
   }
 
@@ -99,44 +78,46 @@ h1, h2, h3, h4, h5, h6,
   .parch-header-links {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.35rem;
     margin-left: 1.5rem;
 
     .parch-nav-item {
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       font-weight: 500;
       color: var(--header_primary);
-      opacity: 0.8;
+      opacity: 0.75;
       padding: 0.4rem 0.75rem;
       border-radius: var(--d-border-radius);
-      transition: all var(--parch-transition-fast);
+      transition: all var(--parch-trans-fast);
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
+      gap: 0.4rem;
       text-decoration: none;
+
+      svg {
+        width: 15px;
+        height: 15px;
+        opacity: 0.8;
+      }
 
       &:hover {
         opacity: 1;
         background: var(--primary-low);
-        color: var(--tertiary);
-      }
-
-      .d-icon {
-        font-size: 0.85em;
+        color: var(--parch-cyan);
       }
     }
   }
 
-  /* Header Search Bar */
+  /* Refined Header Search Input */
   .floating-search-input-wrapper,
   .search-input {
     input[type="text"] {
       border-radius: 20px;
-      border: 1px solid var(--primary-low);
+      border: 1px solid var(--primary-low-mid);
       background: var(--primary-very-low);
-      padding: 0.45em 1em;
-      transition: all var(--parch-transition-fast);
-      font-size: 0.9rem;
+      padding: 0.45em 1.1em;
+      font-size: 0.88rem;
+      transition: all var(--parch-trans-fast);
 
       &:focus {
         border-color: var(--parch-cyan);
@@ -146,70 +127,57 @@ h1, h2, h3, h4, h5, h6,
     }
   }
 
-  /* Header Icons / Buttons */
-  .d-header-icons {
-    .icon {
-      border-radius: 50%;
-      transition: all var(--parch-transition-fast);
+  .d-header-icons .icon {
+    border-radius: 8px;
+    transition: all var(--parch-trans-fast);
 
-      &:hover {
-        background: var(--primary-low);
-        color: var(--tertiary);
-      }
+    &:hover {
+      background: var(--primary-low);
+      color: var(--parch-cyan);
     }
   }
 }
 
 /* --------------------------------------------------------------------------
-   3. Parch Hero Community Banner
+   3. Parch Hero Community Banner (Modern Bento Style)
    -------------------------------------------------------------------------- */
 .parch-hero-banner {
   margin: 1.5rem 0 2rem 0;
-  padding: 2.2rem 2.5rem;
+  padding: 2.2rem 2.4rem;
   background: var(--secondary);
   border: 1px solid var(--primary-low);
   border-radius: var(--d-border-radius-large);
-  box-shadow: var(--parch-card-shadow);
+  box-shadow: var(--parch-shadow-md);
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.4rem;
 
+  /* Subtle top accent line */
   &::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 3px;
-    background: var(--parch-gradient-primary);
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    top: -50%;
-    right: -20%;
-    width: 380px;
-    height: 380px;
-    background: radial-gradient(circle, rgba(0, 234, 255, 0.08) 0%, rgba(0, 255, 128, 0.04) 50%, transparent 70%);
-    pointer-events: none;
-    border-radius: 50%;
+    height: 2px;
+    background: var(--parch-gradient-brand);
   }
 
   .parch-banner-badge {
     display: inline-flex;
     align-items: center;
-    gap: 0.45rem;
-    padding: 0.3rem 0.75rem;
+    gap: 0.5rem;
+    padding: 0.3rem 0.8rem;
     border-radius: 20px;
-    background: var(--parch-gradient-subtle);
-    border: 1px solid rgba(0, 234, 255, 0.3);
+    background: var(--parch-cyan-muted);
+    border: 1px solid var(--parch-cyan-border);
     color: var(--parch-cyan);
     font-size: 0.78rem;
     font-weight: 600;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
     width: fit-content;
 
     .dot {
@@ -224,29 +192,30 @@ h1, h2, h3, h4, h5, h6,
   .parch-banner-content {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     gap: 2rem;
     position: relative;
     z-index: 1;
 
     .parch-banner-text {
-      max-width: 680px;
+      max-width: 650px;
 
       h1 {
-        font-size: 1.85rem;
+        font-size: 1.95rem;
         font-weight: 700;
         margin: 0 0 0.6rem 0;
         line-height: 1.25;
-        background: var(--parch-gradient-primary);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        display: inline-block;
+        color: var(--primary);
+
+        .highlight {
+          color: var(--parch-cyan);
+        }
       }
 
       p {
-        font-size: 1.02rem;
-        color: var(--primary-high);
-        line-height: 1.55;
+        font-size: 1rem;
+        color: var(--primary-medium);
+        line-height: 1.6;
         margin: 0;
       }
     }
@@ -255,15 +224,15 @@ h1, h2, h3, h4, h5, h6,
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 80px;
-      height: 80px;
+      width: 76px;
+      height: 76px;
       flex-shrink: 0;
 
       svg, img {
         width: 100%;
         height: 100%;
         object-fit: contain;
-        filter: drop-shadow(0 4px 16px rgba(0, 234, 255, 0.25));
+        filter: drop-shadow(0 4px 14px rgba(0, 234, 255, 0.2));
       }
     }
   }
@@ -277,176 +246,175 @@ h1, h2, h3, h4, h5, h6,
     z-index: 1;
 
     .btn-parch-primary {
-      background: var(--parch-gradient-primary);
-      color: #0b0f17 !important;
+      background: var(--parch-gradient-brand);
+      color: #0b0f14 !important;
       font-weight: 600;
-      padding: 0.55rem 1.15rem;
+      font-size: 0.9rem;
+      padding: 0.58rem 1.25rem;
       border-radius: var(--d-button-border-radius);
       border: none;
-      box-shadow: var(--parch-glow-button);
+      box-shadow: var(--parch-shadow-button);
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.55rem;
       text-decoration: none;
-      transition: transform var(--parch-transition-fast), box-shadow var(--parch-transition-fast);
+      transition: all var(--parch-trans-fast);
+
+      svg {
+        width: 17px;
+        height: 17px;
+      }
 
       &:hover {
         transform: translateY(-2px);
         box-shadow: 0 6px 20px rgba(0, 234, 255, 0.4);
       }
+
+      &:active {
+        transform: translateY(0);
+      }
     }
 
     .btn-parch-secondary {
-      background: var(--primary-low);
+      background: var(--primary-very-low);
       color: var(--primary) !important;
       font-weight: 500;
-      padding: 0.55rem 1.15rem;
+      font-size: 0.9rem;
+      padding: 0.58rem 1.15rem;
       border-radius: var(--d-button-border-radius);
-      border: 1px solid var(--primary-low-mid);
+      border: 1px solid var(--primary-low);
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.55rem;
       text-decoration: none;
-      transition: all var(--parch-transition-fast);
+      transition: all var(--parch-trans-fast);
+
+      svg {
+        width: 16px;
+        height: 16px;
+        color: var(--primary-medium);
+        transition: color var(--parch-trans-fast);
+      }
 
       &:hover {
-        background: var(--primary-low-mid);
-        border-color: var(--parch-cyan);
-        color: var(--tertiary) !important;
+        background: var(--primary-low);
+        border-color: var(--parch-cyan-border);
+        color: var(--parch-cyan) !important;
         transform: translateY(-2px);
+
+        svg {
+          color: var(--parch-cyan);
+        }
+      }
+
+      &:active {
+        transform: translateY(0);
       }
     }
   }
 }
 
 /* --------------------------------------------------------------------------
-   4. Topic List & Cards
+   4. Topic List UI & Cards
    -------------------------------------------------------------------------- */
 .topic-list {
   border-collapse: separate;
   border-spacing: 0 6px;
 
-  thead {
-    th {
-      font-weight: 600;
-      color: var(--primary-medium);
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      border-bottom: 2px solid var(--primary-low);
-      padding: 0.6em 0.8em;
-    }
+  thead th {
+    font-weight: 600;
+    color: var(--primary-medium);
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border-bottom: 1px solid var(--primary-low);
+    padding: 0.6em 0.85em;
   }
 
-  tbody {
-    tr {
-      background: var(--secondary);
-      border-radius: var(--d-border-radius);
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-      transition: all var(--parch-transition-fast);
-      border: 1px solid var(--primary-low);
-      position: relative;
+  tbody tr {
+    background: var(--secondary);
+    border-radius: var(--d-border-radius);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    border: 1px solid var(--primary-low);
+    transition: all var(--parch-trans-fast);
 
-      td {
-        padding: var(--canvas-topic-list-padding, 0.85em);
-        border: none;
+    td {
+      padding: var(--canvas-topic-list-padding, 0.9em);
+      border: none;
 
-        &:first-child {
-          border-top-left-radius: var(--d-border-radius);
-          border-bottom-left-radius: var(--d-border-radius);
-          border-left: 3px solid transparent;
-        }
-
-        &:last-child {
-          border-top-right-radius: var(--d-border-radius);
-          border-bottom-right-radius: var(--d-border-radius);
-        }
+      &:first-child {
+        border-top-left-radius: var(--d-border-radius);
+        border-bottom-left-radius: var(--d-border-radius);
+        border-left: 3px solid transparent;
       }
 
-      &:hover {
-        background: var(--primary-very-low);
-        box-shadow: var(--parch-card-shadow-hover);
-        transform: translateY(-1px);
-
-        td:first-child {
-          border-left-color: var(--parch-cyan);
-        }
+      &:last-child {
+        border-top-right-radius: var(--d-border-radius);
+        border-bottom-right-radius: var(--d-border-radius);
       }
+    }
 
-      &.visited {
-        opacity: 0.92;
+    &:hover {
+      background: var(--primary-very-low);
+      border-color: var(--primary-low-mid);
+      transform: translateY(-1px);
+      box-shadow: var(--parch-shadow-md);
+
+      td:first-child {
+        border-left-color: var(--parch-cyan);
       }
+    }
 
-      &.unread {
-        font-weight: 600;
-
-        td:first-child {
-          border-left-color: var(--parch-green);
-        }
+    &.unread {
+      td:first-child {
+        border-left-color: var(--parch-green);
       }
     }
   }
 
-  .main-link {
-    a.title {
-      color: var(--primary);
-      font-size: 1.05rem;
-      font-weight: 600;
-      line-height: 1.4;
-      transition: color var(--parch-transition-fast);
+  .main-link a.title {
+    color: var(--primary);
+    font-size: 1.02rem;
+    font-weight: 600;
+    line-height: 1.45;
+    transition: color var(--parch-trans-fast);
 
-      &:hover {
-        color: var(--parch-cyan);
-      }
+    &:hover {
+      color: var(--parch-cyan);
     }
-  }
-
-  .topic-post-badges {
-    color: var(--parch-cyan);
   }
 }
 
 /* Category Badges & Tags */
-.badge-wrapper {
-  &.bullet {
-    .badge-category {
-      font-weight: 600;
-      font-size: 0.82rem;
-    }
-
-    .badge-category-parent-bg,
-    .badge-category-bg {
-      border-radius: 4px;
-    }
-  }
-
-  &.box {
-    border-radius: 6px;
-    padding: 2px 6px;
-    font-size: 0.8rem;
+.badge-wrapper.bullet {
+  .badge-category {
     font-weight: 600;
+    font-size: 0.82rem;
+  }
+  .badge-category-bg {
+    border-radius: 4px;
   }
 }
 
 .discourse-tag {
   border-radius: 6px;
-  background: var(--primary-low);
+  background: var(--primary-very-low);
   color: var(--primary-high) !important;
   font-size: 0.78rem;
-  padding: 0.15em 0.55em;
+  padding: 0.2em 0.55em;
   font-family: var(--d-font-family--monospace);
-  transition: all var(--parch-transition-fast);
-  border: 1px solid transparent;
+  border: 1px solid var(--primary-low);
+  transition: all var(--parch-trans-fast);
 
   &:hover {
-    background: var(--parch-gradient-subtle);
-    border-color: rgba(0, 234, 255, 0.3);
+    background: var(--parch-cyan-muted);
+    border-color: var(--parch-cyan-border);
     color: var(--parch-cyan) !important;
   }
 }
 
 /* --------------------------------------------------------------------------
-   5. Posts Stream, User Cards & Linux Terminal Code Blocks
+   5. Linux Terminal Code Blocks & Post Stream
    -------------------------------------------------------------------------- */
 .topic-post {
   article.boxed {
@@ -454,71 +422,51 @@ h1, h2, h3, h4, h5, h6,
     border-radius: var(--d-border-radius-large);
     border: 1px solid var(--primary-low);
     margin-bottom: 1.25rem;
-    padding: 1.25rem;
-    box-shadow: var(--parch-card-shadow);
-    transition: border-color var(--parch-transition-fast);
+    padding: 1.4rem;
+    box-shadow: var(--parch-shadow-sm);
+    transition: border-color var(--parch-trans-fast);
 
     &:hover {
       border-color: var(--primary-low-mid);
     }
   }
 
-  /* Author avatar glow on hover */
-  .topic-avatar {
-    .avatar {
-      border-radius: 50%;
-      transition: all var(--parch-transition-fast);
+  .topic-avatar .avatar {
+    border-radius: 50%;
+    transition: all var(--parch-trans-fast);
 
-      &:hover {
-        box-shadow: 0 0 0 2px var(--parch-cyan), var(--parch-glow-cyan);
-      }
+    &:hover {
+      box-shadow: 0 0 0 2px var(--parch-cyan), 0 0 12px rgba(0, 234, 255, 0.3);
     }
   }
 
-  /* Staff / Dev Badge */
   .user-title {
-    background: var(--parch-gradient-subtle);
-    border: 1px solid rgba(0, 234, 255, 0.3);
+    background: var(--parch-cyan-muted);
+    border: 1px solid var(--parch-cyan-border);
     color: var(--parch-cyan);
-    padding: 0.15rem 0.5rem;
+    padding: 0.15rem 0.55rem;
     border-radius: 12px;
     font-size: 0.75rem;
     font-weight: 600;
-    margin-left: 0.4rem;
   }
 }
 
-/* Modern Linux Terminal Code Blocks */
-pre code {
-  font-family: var(--d-font-family--monospace) !important;
-  font-size: 0.88rem !important;
-  line-height: 1.5 !important;
-  border-radius: var(--d-border-radius);
-  padding: 1rem 1.25rem !important;
-  background: #090d14 !important;
-  color: #e6edf3 !important;
-  border: 1px solid rgba(0, 234, 255, 0.15);
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
-  position: relative;
-  display: block;
-}
-
-/* Terminal top bar header for pre blocks */
+/* Terminal Wrapper for Code Blocks */
 .parch-terminal-wrap {
-  position: relative;
   margin: 1.25rem 0;
-  border-radius: var(--d-border-radius-large);
+  border-radius: 12px;
   overflow: hidden;
-  border: 1px solid rgba(0, 234, 255, 0.2);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--primary-low);
+  box-shadow: var(--parch-shadow-md);
+  background: #0b0f16;
 
   .parch-terminal-header {
     background: #111722;
-    padding: 0.5rem 0.9rem;
+    padding: 0.55rem 0.95rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 
     .parch-terminal-controls {
       display: flex;
@@ -539,26 +487,42 @@ pre code {
 
     .parch-terminal-title {
       font-family: var(--d-font-family--monospace);
-      font-size: 0.76rem;
+      font-size: 0.78rem;
       color: #8b949e;
       font-weight: 500;
-      letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+
+      svg {
+        width: 14px;
+        height: 14px;
+        opacity: 0.7;
+      }
     }
 
     .parch-copy-btn {
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.07);
       border: 1px solid rgba(255, 255, 255, 0.1);
       color: #c9d1d9;
-      font-size: 0.72rem;
-      padding: 0.2rem 0.55rem;
-      border-radius: 4px;
+      font-size: 0.75rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
       cursor: pointer;
       font-family: var(--font-family);
-      transition: all var(--parch-transition-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: all var(--parch-trans-fast);
+
+      svg {
+        width: 13px;
+        height: 13px;
+      }
 
       &:hover {
-        background: var(--parch-gradient-primary);
-        color: #090d14;
+        background: var(--parch-gradient-brand);
+        color: #0b0f14;
         border-color: transparent;
       }
     }
@@ -567,9 +531,14 @@ pre code {
   pre {
     margin: 0;
     code {
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-      border: none;
+      font-family: var(--d-font-family--monospace) !important;
+      font-size: 0.88rem !important;
+      line-height: 1.55 !important;
+      padding: 1.1rem 1.25rem !important;
+      background: #0b0f16 !important;
+      color: #e6edf3 !important;
+      border: none !important;
+      border-radius: 0 !important;
     }
   }
 }
@@ -579,7 +548,7 @@ aside.quote {
   border-left: 3px solid var(--parch-cyan);
   background: var(--primary-very-low);
   border-radius: 0 var(--d-border-radius) var(--d-border-radius) 0;
-  padding: 0.75rem 1rem;
+  padding: 0.85rem 1.15rem;
   margin: 1rem 0;
 
   .title {
@@ -592,23 +561,21 @@ aside.quote {
    6. Sidebar Navigation
    -------------------------------------------------------------------------- */
 .sidebar-wrapper {
-  .sidebar-section-link-wrapper {
-    .sidebar-section-link {
-      border-radius: var(--d-sidebar-border-radius);
-      transition: all var(--parch-transition-fast);
-      margin: 2px 0;
+  .sidebar-section-link-wrapper .sidebar-section-link {
+    border-radius: var(--d-sidebar-border-radius);
+    transition: all var(--parch-trans-fast);
+    margin: 2px 0;
 
-      &:hover {
-        background: var(--primary-low);
-        color: var(--tertiary);
-      }
+    &:hover {
+      background: var(--primary-low);
+      color: var(--parch-cyan);
+    }
 
-      &.active {
-        background: var(--parch-gradient-subtle);
-        color: var(--parch-cyan);
-        font-weight: 600;
-        border-left: 3px solid var(--parch-cyan);
-      }
+    &.active {
+      background: var(--parch-cyan-muted);
+      color: var(--parch-cyan);
+      font-weight: 600;
+      border-left: 3px solid var(--parch-cyan);
     }
   }
 }
@@ -617,16 +584,16 @@ aside.quote {
    7. Buttons & Form Controls
    -------------------------------------------------------------------------- */
 .btn-primary {
-  background: var(--parch-gradient-primary);
-  color: #0b0f17 !important;
+  background: var(--parch-gradient-brand);
+  color: #0b0f14 !important;
   font-weight: 600;
   border: none;
   border-radius: var(--d-button-border-radius);
-  box-shadow: var(--parch-glow-button);
-  transition: all var(--parch-transition-fast);
+  box-shadow: var(--parch-shadow-button);
+  transition: all var(--parch-trans-fast);
 
   .d-icon {
-    color: #0b0f17;
+    color: #0b0f14;
   }
 
   &:hover {
@@ -641,26 +608,24 @@ aside.quote {
 
 .btn-default {
   border-radius: var(--d-button-border-radius);
-  transition: all var(--parch-transition-fast);
+  transition: all var(--parch-trans-fast);
 
   &:hover {
     background: var(--primary-low);
-    color: var(--tertiary);
+    color: var(--parch-cyan);
   }
 }
 
-.nav-pills {
-  > li > a {
-    border-radius: var(--d-nav-pill-border-radius);
-    font-weight: 500;
-    transition: all var(--parch-transition-fast);
+.nav-pills > li > a {
+  border-radius: var(--d-nav-pill-border-radius);
+  font-weight: 500;
+  transition: all var(--parch-trans-fast);
 
-    &.active {
-      background: var(--parch-gradient-primary);
-      color: #0b0f17 !important;
-      font-weight: 600;
-      box-shadow: var(--parch-glow-button);
-    }
+  &.active {
+    background: var(--parch-gradient-brand);
+    color: #0b0f14 !important;
+    font-weight: 600;
+    box-shadow: var(--parch-shadow-button);
   }
 }
 
@@ -672,14 +637,10 @@ aside.quote {
   border-top-right-radius: var(--d-border-radius-large);
   box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.25);
   border-top: 2px solid var(--parch-cyan);
-
-  .d-editor-preview-wrapper {
-    border-left: 1px solid var(--primary-low);
-  }
 }
 
 .modal-inner-container {
   border-radius: var(--d-border-radius-large);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  box-shadow: var(--parch-shadow-lg);
   border: 1px solid var(--primary-low);
 }

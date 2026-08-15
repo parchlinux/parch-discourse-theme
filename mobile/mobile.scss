@@ -1,4 +1,4 @@
-/* Mobile-specific Parch Theme Enhancements */
+/* Mobile-First & Touchscreen Optimizations */
 
 @media screen and (max-width: 767px) {
   .parch-header-links {
@@ -6,36 +6,78 @@
   }
 
   .parch-hero-banner {
-    padding: 1.5rem 1.25rem;
-    margin: 1rem 0;
+    padding: 1.4rem 1.25rem;
+    margin: 1rem 0 1.5rem 0;
+    gap: 1.1rem;
 
     .parch-banner-content {
       flex-direction: column;
-      gap: 1rem;
+      align-items: flex-start;
+      gap: 0.85rem;
 
-      .parch-banner-text h1 {
-        font-size: 1.45rem;
+      .parch-banner-text {
+        h1 {
+          font-size: 1.45rem;
+          line-height: 1.3;
+        }
+
+        p {
+          font-size: 0.92rem;
+        }
       }
-    }
 
-    .parch-banner-logo {
-      display: none;
+      .parch-banner-logo {
+        display: none;
+      }
     }
 
     .parch-banner-actions {
       flex-direction: column;
       align-items: stretch;
+      width: 100%;
+      gap: 0.6rem;
 
-      a {
-        text-align: center;
+      .btn-parch-primary,
+      .btn-parch-secondary {
+        width: 100%;
         justify-content: center;
+        padding: 0.7rem 1rem;
+        font-size: 0.92rem;
+        min-height: 44px; /* Accessible touch target */
       }
     }
   }
 
+  /* Compact topic list rows for mobile */
   .topic-list {
     tbody tr {
       margin-bottom: 0.5rem;
+      border-radius: var(--d-border-radius);
+
+      td {
+        padding: 0.75rem 0.85rem;
+      }
+    }
+  }
+
+  /* Post controls & avatars */
+  .topic-post article.boxed {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Code block overflow on mobile */
+  .parch-terminal-wrap {
+    margin: 1rem -0.5rem;
+    border-radius: 8px;
+
+    .parch-terminal-header {
+      padding: 0.45rem 0.75rem;
+    }
+
+    pre code {
+      padding: 0.85rem 1rem !important;
+      font-size: 0.82rem !important;
     }
   }
 }
