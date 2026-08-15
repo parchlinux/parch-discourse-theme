@@ -13,7 +13,7 @@ export default apiInitializer((api) => {
     chat: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>`,
   };
 
-  // 1. Inject Linux Terminal Code Block UI
+  // 1. Inject Linux Terminal Code Block & Command Runner UI
   api.decorateCookedElement(
     (elem) => {
       if (!settings.enable_terminal_codeblocks) {
@@ -25,6 +25,14 @@ export default apiInitializer((api) => {
         if (pre.parentElement.classList.contains("parch-terminal-wrap")) {
           return;
         }
+
+        const codeEl = pre.querySelector("code");
+        const codeText = (codeEl?.innerText || pre.innerText || "").trim();
+
+        // Detect Root vs User command
+        const isRoot = codeText.startsWith("sudo ") || codeText.startsWith("# ") || codeText.startsWith("su ");
+        const promptSymbol = isRoot ? "#" : "$";
+        const promptClass = isRoot ? "root" : "user";
 
         const wrapper = document.createElement("div");
         wrapper.className = "parch-terminal-wrap";
@@ -42,7 +50,10 @@ export default apiInitializer((api) => {
 
         const title = document.createElement("span");
         title.className = "parch-terminal-title";
-        title.innerHTML = `${ICONS.terminal} <span>${i18n(themePrefix("parch_theme.codeblock.terminal_title")) || "parch ~ $"}</span>`;
+        title.innerHTML = `
+          ${ICONS.terminal}
+          <span>parch ~ <span class="prompt-indicator ${promptClass}">${promptSymbol}</span></span>
+        `;
 
         const copyBtn = document.createElement("button");
         copyBtn.className = "parch-copy-btn";
@@ -50,7 +61,6 @@ export default apiInitializer((api) => {
         copyBtn.innerHTML = `${ICONS.copy} <span>${i18n(themePrefix("parch_theme.codeblock.copy")) || "Copy"}</span>`;
 
         copyBtn.addEventListener("click", () => {
-          const codeText = pre.querySelector("code")?.innerText || pre.innerText;
           navigator.clipboard.writeText(codeText).then(() => {
             copyBtn.innerHTML = `${ICONS.check} <span>${i18n(themePrefix("parch_theme.codeblock.copied")) || "Copied!"}</span>`;
             setTimeout(() => {

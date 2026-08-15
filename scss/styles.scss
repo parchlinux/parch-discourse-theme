@@ -29,6 +29,21 @@ h1, h2, h3, h4, h5, h6,
   color: inherit;
 }
 
+/* Inline code formatting */
+p > code,
+li > code,
+td > code,
+span > code:not(.badge-category-bg) {
+  font-family: var(--d-font-family--monospace) !important;
+  font-size: 0.88em !important;
+  padding: 0.18em 0.45em;
+  border-radius: 6px;
+  background: var(--primary-very-low);
+  border: 1px solid var(--primary-low);
+  color: var(--parch-cyan) !important;
+  word-break: break-word;
+}
+
 /* --------------------------------------------------------------------------
    2. Sticky Modern Header
    -------------------------------------------------------------------------- */
@@ -378,7 +393,114 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* --------------------------------------------------------------------------
-   5. User Titles, Badges, Post Stream & Terminal Code Blocks
+   5. Category Cards - Modern Bento Grid
+   -------------------------------------------------------------------------- */
+.category-boxes,
+.category-boxes-with-topics {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+
+  .category-box {
+    width: 100%;
+    margin: 0;
+    background: var(--secondary);
+    border: 1px solid var(--primary-low);
+    border-radius: var(--d-border-radius-large);
+    box-shadow: var(--parch-shadow-sm);
+    transition: all var(--parch-trans-normal);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--category-badge-color, var(--parch-cyan));
+      opacity: 0.85;
+      transition: opacity var(--parch-trans-fast);
+    }
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--parch-shadow-md);
+      border-color: var(--primary-low-mid);
+
+      &::before {
+        opacity: 1;
+        box-shadow: 0 0 12px var(--category-badge-color, var(--parch-cyan));
+      }
+
+      .category-box-heading h3 {
+        color: var(--parch-cyan);
+      }
+    }
+
+    .category-box-inner {
+      padding: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      border: none;
+    }
+
+    .category-box-heading {
+      margin-bottom: 0.6rem;
+
+      h3 {
+        font-size: 1.15rem;
+        font-weight: 700;
+        margin: 0;
+        color: var(--primary);
+        transition: color var(--parch-trans-fast);
+      }
+    }
+
+    .description {
+      font-size: 0.88rem;
+      color: var(--primary-medium);
+      line-height: 1.5;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+
+    .category-stat {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--primary-medium);
+      background: var(--primary-very-low);
+      padding: 0.25rem 0.65rem;
+      border-radius: 20px;
+      border: 1px solid var(--primary-low);
+      width: fit-content;
+    }
+
+    .subcategories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid var(--primary-low);
+
+      .subcategory {
+        font-size: 0.78rem;
+      }
+    }
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. User Titles, Badges, Post Stream & Terminal Code Blocks
    -------------------------------------------------------------------------- */
 .topic-post {
   article.boxed {
@@ -412,6 +534,8 @@ h1, h2, h3, h4, h5, h6,
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
+  order: 4;
+  flex-basis: auto;
   font-size: 0.82rem;
   font-weight: 500;
   color: var(--primary-medium);
@@ -491,6 +615,18 @@ h1, h2, h3, h4, h5, h6,
         height: 14px;
         opacity: 0.7;
       }
+
+      .prompt-indicator {
+        font-weight: 700;
+
+        &.root {
+          color: #ff5f56;
+        }
+
+        &.user {
+          color: var(--parch-cyan);
+        }
+      }
     }
 
     .parch-copy-btn {
@@ -550,7 +686,7 @@ aside.quote {
 }
 
 /* --------------------------------------------------------------------------
-   6. Sidebar Navigation
+   7. Sidebar Navigation
    -------------------------------------------------------------------------- */
 .sidebar-wrapper {
   .sidebar-section-link-wrapper .sidebar-section-link {
@@ -573,7 +709,7 @@ aside.quote {
 }
 
 /* --------------------------------------------------------------------------
-   7. Buttons & Form Controls
+   8. Buttons & Form Controls
    -------------------------------------------------------------------------- */
 .btn-primary {
   background: var(--parch-gradient-brand);
@@ -622,7 +758,7 @@ aside.quote {
 }
 
 /* --------------------------------------------------------------------------
-   8. Discourse Composer & Modals
+   9. Discourse Composer & Modals
    -------------------------------------------------------------------------- */
 #reply-control {
   border-top-left-radius: var(--d-border-radius-large);

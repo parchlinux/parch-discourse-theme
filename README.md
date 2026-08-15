@@ -16,9 +16,13 @@ A modern, fast, and sleek Discourse theme designed specifically for the **Parch 
 ## 🚀 Key Features
 
 - **Parch Hero Community Banner**: Interactive banner on discovery pages featuring quick links with crisp SVG icons to download the Parch Linux ISO, Wiki/Documentation, GitHub repos, and Telegram chat.
-- **Linux Terminal Code Blocks**: Automatically formats `<pre><code>` snippets into Linux terminal style with traffic light window controls, `parch ~ $` prompt, JetBrains Mono font, and one-click copy-to-clipboard functionality.
+- **Bento Grid Category Cards**: Modern Bento-style grid for `/categories` featuring custom glowing indicator bars, topic/post counter pills, and smooth hover elevation.
+- **Linux Terminal Code Blocks & Command Helper**:
+  - Automatically formats code blocks into sleek Linux terminal windows with macOS/Linux 3-dot window controls and one-click copy.
+  - Automatically detects root commands (`sudo`, `#`) vs user commands (`$`) and renders appropriate prompt indicators.
+  - Formats inline code (`code`) with terminal-style badges.
 - **Modern Floating Header**: Frosted glass backdrop blur with refined search bar.
-- **Polished User Titles & Badges**: Clean typography and subtle badges with full support for Persian (e.g. تیم پارچ), RTL, and LTR scripts.
+- **Polished User Titles & Badges**: Clean typography and subtle badges with full support for Persian (e.g. `تیم پارچ`), RTL, and LTR scripts.
 - **Card-Style Topic List**: Elevated topic cards with smooth hover lift micro-animations, Parch unread indicators, and category halos.
 - **Polished Typography**: Native integration with Google Fonts (*Inter*, *Plus Jakarta Sans*, and *JetBrains Mono*).
 - **Responsive & Mobile-First**: Optimized touch targets, compact rows, and responsive terminal code blocks.
@@ -38,7 +42,7 @@ Configure these settings in the Discourse Admin panel (**Admin > Customize > The
 | `banner_wiki_url` | `"https://wiki.parchlinux.com"` | URL for the Documentation & Wiki button |
 | `banner_github_url` | `"https://github.com/parchlinux"` | URL for GitHub repositories |
 | `banner_telegram_url` | `"https://t.me/parchlinux"` | URL for the Telegram community group |
-| `enable_terminal_codeblocks` | `true` | Format code blocks as Linux terminals |
+| `enable_terminal_codeblocks` | `true` | Format code blocks as Linux terminals with command helper |
 | `enable_glassmorphism` | `true` | Frosted glass effect on header and cards |
 
 ---
