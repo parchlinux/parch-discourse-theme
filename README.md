@@ -1,75 +1,59 @@
-# Canvas Theme Template
+# Parch Linux Discourse Theme
 
-Kickstart your custom theme design with a pre-made template.
+A modern, fast, and sleek Discourse theme designed specifically for the **Parch Linux** community. Built using the authentic Parch Linux color palette (`#00EAFF` Cyan, `#0080FF` Azure Blue, `#00FF80` Neon Green, and `#8500B2`/`#B000CC` Violet accents), glassmorphic elements, Linux terminal code blocks, and an interactive community hero banner.
 
-![Canvas Theme Template - Cover](assets/Cover.png)
+---
 
-Discussion, feedback and more info: https://meta.discourse.org/t/352730
+## 🎨 Color Schemes
 
-## Custom properties
+1. **Parch Dark (Default)**: Deep obsidian dark mode (`#0d1117`) paired with vibrant Parch Cyan (`#00EAFF`) and Spring Green (`#00FF80`) highlights.
+2. **Parch Light**: Clean, high-contrast light theme with crystal-clear readability and Parch teal/emerald accents.
+3. **Parch Neon Violet**: Inspired by the Parch dark logo (`parch-logo-dark.svg`), featuring deep space indigo backgrounds with vibrant violet (`#B000CC`) and cyan accents.
+4. **Parch Cyber OLED**: True pitch black mode (`#000000`) optimized for OLED displays and battery efficiency.
 
-The template uses CSS custom properties (variables) for consistent styling across the theme.
+---
 
-### Canvas
+## 🚀 Key Features
 
-Additional custom properties added for the template.
+- **Parch Hero Community Banner**: Interactive banner on discovery pages featuring quick links to download the Parch Linux ISO, Wiki/Documentation, GitHub repos, and Telegram chat.
+- **Linux Terminal Code Blocks**: Automatically formats `<pre><code>` snippets into Linux terminal style with traffic light window controls, `parch ~ $` prompt, JetBrains Mono font, and one-click copy-to-clipboard functionality.
+- **Modern Floating Header**: Frosted glass backdrop blur with a glowing Parch gradient accent line and quick navigation links.
+- **Card-Style Topic List**: Elevated topic cards with smooth hover lift micro-animations, Parch unread indicators, and category halos.
+- **Polished Typography**: Native integration with Google Fonts (*Inter*, *Plus Jakarta Sans*, and *JetBrains Mono*).
+- **Responsive & Accessible**: Optimized for desktop, tablets, and mobile devices.
 
-| Property Name                     | Description                                   | Undeclared Value               |
-| --------------------------------- | --------------------------------------------- | ------------------------------ |
-| **Layout**                        |
-| `--canvas-nav-space`              | Vertical spacing for navigation-bar items     | `0.75rem`                      |
-| `--canvas-content-padding`        | Top and bottom padding for main content       | `1.5rem`                       |
-| `--canvas-topic-list-padding`     | Top and bottom padding for topic list items   | `0.8em`                        |
-| **Base Styles**                   |
-| `--canvas-background`             | Main background color of the theme            | `var(--secondary)`             |
-| `--canvas-border`                 | Default border style                          | `1px solid var(--primary-500)` |
-| `--canvas-border-light`           | Lighter border style for subtle separators    | `1px solid var(--primary-200)` |
-| **Button Styles**                 |
-| `--canvas-button-padding`         | Default padding for buttons                   | `0.5em 0.65em`                 |
-| `--canvas-button-primary-padding` | Padding for prominent buttons                 | `0.5em 0.65em`                 |
-| **Header**                        |
-| `--canvas-header-background`      | Header background color\[^1]                  | `var(--header_background)`     |
-| `--canvas-header-height`          | Height of the main header                     | `4rem`                         |
-| `--canvas-header-border`          | Header bottom border style                    | `none`                         |
-| `--canvas-header-shadow`          | Header shadow style                           | `var(--shadow-header)`         |
-| **Sidebar**                       |
-| `--canvas-sidebar-border`         | Sidebar border style                          | `1px solid var(--primary-low)` |
-| `--canvas-sidebar-scrollbar`      | Sidebar scrollbar width, can be set to `none` | `var(--scrollbarWidth)`        |
-| **Panels**                        |
-| `--canvas-panel-background`       | Panel background color                        | `var(--secondary)`             |
-| `--canvas-panel-padding`          | Padding for panels                            | `1rem 2rem`                    |
-| `--canvas-panel-radius`           | Border radius for panels                      | `var(--d-border-radius-large)` |
-| `--canvas-panel-border`           | Panel border style                            | `none`                         |
-| `--canvas-panel-shadow`           | Panel shadow effect                           | `var(--shadow-header)`         |
-| **Banners**                       |
-| `--canvas-banner-background`      | Banner background style                       | `var(--secondary)`             |
-| `--canvas-banner-color`           | Banner text color                             | `var(--primary)`               |
-| `--canvas-banner-padding`         | Banner padding                                | `1rem 2rem 1.5rem`             |
-| `--canvas-banner-radius`          | Banner border radius                          | `var(--d-border-radius-large)` |
-| `--canvas-banner-border`          | Banner border style                           | `none`                         |
-| `--canvas-banner-shadow`          | Banner shadow effect                          | `var(--shadow-header)`         |
-| **Header Search**                 |
-| `--canvas-header-search-border`   | Border style for header search                | `1px solid var(--primary-400)` |
-| `--canvas-header-search-padding`  | Padding for header search                     | `0.5em`                        |
+---
 
-[^1]: Can be set as an alternative to the color scheme value `var(--header_background)` as it won't affect color calculations like `var(--header-primary-low-mid)`
+## ⚙️ Theme Settings
 
-### Discourse Core
+Configure these settings in the Discourse Admin panel (**Admin > Customize > Themes > Parch Linux Theme > Settings**):
 
-You can also override any custom properties from Discourse core. Below is a small selection of common properties.
+| Setting | Default | Description |
+|---|---|---|
+| `enable_parch_banner` | `true` | Show/hide the community hero banner on discovery pages |
+| `banner_title` | `"Welcome to Parch Linux"` | Headline title for the hero banner |
+| `banner_subtitle` | `"A fast, lightweight, and beautiful Linux distribution..."` | Subtitle description |
+| `banner_download_url` | `"https://parchlinux.com/download"` | URL for the Download ISO button |
+| `banner_wiki_url` | `"https://wiki.parchlinux.com"` | URL for the Documentation & Wiki button |
+| `banner_github_url` | `"https://github.com/parchlinux"` | URL for GitHub repositories |
+| `banner_telegram_url` | `"https://t.me/parchlinux"` | URL for the Telegram community group |
+| `enable_terminal_codeblocks` | `true` | Format code blocks as Linux terminals |
+| `enable_glassmorphism` | `true` | Frosted glass effect on header and cards |
+| `enable_topic_hover_cards` | `true` | Card styling with Parch hover effects |
+| `enable_parch_badge_glow` | `true` | Subtle glowing neon accents for badges and active pills |
+| `custom_header_links` | `true` | Quick links in the top header navigation |
 
-| Property Name                      | Description                                    | Default Value                   |
-| ---------------------------------- | ---------------------------------------------- | ------------------------------- |
-| **Layout**                         |
-| `--d-max-width`                    | Maximum width of the main content area         | `1110px`                        |
-| **Border Radius**                  |
-| `--d-border-radius`                | Default border radius for elements             | `2px`                           |
-| `--d-border-radius-large`          | Larger border radius for bigger elements       | `2px`                           |
-| `--d-button-border-radius`         | Border radius for buttons                      | `2px`                           |
-| `--d-input-border-radius`          | Border radius for input fields                 | `var(--d-button-border-radius)` |
-| `--d-nav-pill-border-radius`       | Border radius for navigation pills             | `var(--d-button-border-radius)` |
-| **Sidebar**                        |
-| `--d-sidebar-width`                | Width of the sidebar                           | `17em`                          |
-| `--d-sidebar-background`           | Sidebar background color                       | `var(--secondary)`              |
-| `--d-sidebar-row-height`           | Height of sidebar rows                         | `2.2em`                         |
-| `--d-sidebar-highlight-background` | Background color for highlighted sidebar items | `var(--primary-low)`            |
+---
+
+## 📦 Installation
+
+1. In Discourse, go to **Admin > Customize > Themes**.
+2. Click **Install** > **From a git repository**.
+3. Enter the repository URL.
+4. Select the theme and activate it for your community.
+
+---
+
+## 📄 License
+
+Distributed under the MIT License. See [LICENSE](LICENSE) for details.

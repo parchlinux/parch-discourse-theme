@@ -1,58 +1,56 @@
-/* Custom properties and their default values */
 :root {
-  /* Layout */
-  // --d-max-width: 1110px;
-  // --canvas-nav-space: 0.75rem;
-  // --canvas-content-padding: 1.5rem;
-  // --canvas-topic-list-padding: 0.8em;
+  /* Parch Linux Official Palette Tokens */
+  --parch-cyan: #00eaff;
+  --parch-blue: #0080ff;
+  --parch-green: #00ff80;
+  --parch-seafoam: #00ff95;
+  --parch-purple: #8500b2;
+  --parch-violet: #b000cc;
+  --parch-indigo: #4b0080;
 
-  /* Base Styles */
-  // --canvas-background: var(--secondary);
-  // --canvas-surface: var(--secondary);
-  // --canvas-border: 1px solid var(--primary-500);
-  // --canvas-border-light: 1px solid var(--primary-200);
+  /* Parch Gradients */
+  --parch-gradient-primary: linear-gradient(135deg, #00eaff 0%, #0080ff 50%, #00ff80 100%);
+  --parch-gradient-secondary: linear-gradient(135deg, #8500b2 0%, #b000cc 50%, #00eaff 100%);
+  --parch-gradient-subtle: linear-gradient(135deg, rgba(0, 234, 255, 0.12) 0%, rgba(0, 128, 255, 0.08) 50%, rgba(0, 255, 128, 0.12) 100%);
+  --parch-gradient-border: linear-gradient(135deg, rgba(0, 234, 255, 0.35) 0%, rgba(0, 128, 255, 0.25) 50%, rgba(0, 255, 128, 0.35) 100%);
+  --parch-gradient-hover: linear-gradient(135deg, rgba(0, 234, 255, 0.18) 0%, rgba(0, 128, 255, 0.14) 50%, rgba(0, 255, 128, 0.18) 100%);
 
-  /* Border Radius */
-  // --d-border-radius: 2px;
-  // --d-border-radius-large: 2px;
-  // --d-button-border-radius: 2px;
-  // --d-input-border-radius: var(--d-button-border-radius);
-  // --d-nav-pill-border-radius: var(--d-button-border-radius);
+  /* Parch Glow & Shadows */
+  --parch-glow-cyan: 0 0 16px rgba(0, 234, 255, 0.3);
+  --parch-glow-green: 0 0 16px rgba(0, 255, 128, 0.3);
+  --parch-glow-button: 0 4px 14px rgba(0, 128, 255, 0.35);
+  --parch-card-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  --parch-card-shadow-hover: 0 8px 30px rgba(0, 128, 255, 0.15);
 
-  /* Button Styles */
-  // --canvas-button-padding: 0.5em 0.65em;
-  // --canvas-button-primary-padding: 0.5em 0.65em;
+  /* Discourse Layout & Geometry */
+  --d-max-width: 1220px;
+  --d-border-radius: 8px;
+  --d-border-radius-large: 12px;
+  --d-button-border-radius: 8px;
+  --d-input-border-radius: 8px;
+  --d-nav-pill-border-radius: 8px;
+  --d-sidebar-border-radius: 8px;
+  --d-sidebar-width: 17.5em;
+  --d-sidebar-row-height: 2.35em;
 
-  /* Header */
-  // --canvas-header-height: 4rem;
-  // --canvas-header-background: var(--header_background);
-  // --canvas-header-border: none;
-  // --canvas-header-shadow: var(--shadow-header);
+  /* Canvas Template Compatibility Tokens */
+  --canvas-background: var(--secondary);
+  --canvas-surface: var(--secondary);
+  --canvas-border: 1px solid var(--primary-low);
+  --canvas-border-light: 1px solid var(--primary-very-low);
+  --canvas-header-height: 4.25rem;
+  --canvas-header-background: var(--header_background);
+  --canvas-header-shadow: 0 1px 15px rgba(0, 0, 0, 0.08);
+  --canvas-nav-space: 0.85rem;
+  --canvas-content-padding: 1.5rem;
+  --canvas-topic-list-padding: 0.85em;
 
-  /* Sidebar */
-  // --d-sidebar-width: 17em;
-  // --d-sidebar-background: var(--secondary);
-  // --canvas-sidebar-border: 1px solid var(--primary-low);
-  // --canvas-sidebar-scrollbar: var(--scrollbarWidth);
-  // --d-sidebar-row-height: 2.2em;
-  // --d-sidebar-highlight-background: var(--primary-low);
+  /* Glassmorphism Defaults */
+  --parch-glass-bg: rgba(var(--secondary-rgb, 22, 27, 34), 0.75);
+  --parch-glass-border: rgba(255, 255, 255, 0.08);
+  --parch-glass-blur: blur(12px);
 
-  /* Panels */
-  // --canvas-panel-background: var(--secondary);
-  // --canvas-panel-padding: 1rem 2rem;
-  // --canvas-panel-radius: var(--d-border-radius-large);
-  // --canvas-panel-border: none;
-  // --canvas-panel-shadow: var(--shadow-header);
-
-  /* Banners */
-  // --canvas-banner-color: var(--primary);
-  // --canvas-banner-background: var(--secondary);
-  // --canvas-banner-padding: 1rem 2rem 1.5rem;
-  // --canvas-banner-radius: var(--d-border-radius-large);
-  // --canvas-banner-border: none;
-  // --canvas-banner-shadow: var(--shadow-header);
-
-  /* Header Search */
-  // --canvas-header-search-padding: 0.5em;
-  // --canvas-header-search-border: 1px solid var(--primary-400);
+  /* Transitions */
+  --parch-transition-fast: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  --parch-transition-smooth: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }

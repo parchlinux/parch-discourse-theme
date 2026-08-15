@@ -1,42 +1,62 @@
 {
-  "name": "Canvas Theme",
-  "authors": "Manuel Kostka",
-  "about_url": "https://meta.discourse.org/t/canvas-theme-template/352730",
-  "license_url": "https://gitlab.com/manuelkostka/discourse/canvas/theme/-/blob/main/LICENSE",
-  "learn_more": "",
-  "theme_version": "0.0.1",
-  "minimum_discourse_version": "3.5.0",
+  "name": "Parch Linux Theme",
+  "authors": "Parch Linux Team",
+  "about_url": "https://github.com/parchlinux",
+  "license_url": "https://github.com/parchlinux",
+  "learn_more": "https://parchlinux.com",
+  "theme_version": "1.0.0",
+  "minimum_discourse_version": "3.2.0",
   "maximum_discourse_version": null,
-  "assets": {},
+  "assets": {
+    "parch_logo": "parch-logo.svg",
+    "parch_logo_dark": "parch-logo-dark.svg"
+  },
   "modifiers": {},
   "color_schemes": {
-    "Canvas Light": {
-      "primary": "222222",
-      "secondary": "ffffff",
-      "tertiary": "0088cc",
-      "quaternary": "e45735",
-      "header_background": "ffffff",
-      "header_primary": "333333",
-      "highlight": "ffff4d",
-      "selected": "d1f0ff",
-      "hover": "f2f2f2"
+    "Parch Dark": {
+      "primary": "e6edf3",
+      "secondary": "0d1117",
+      "tertiary": "00eaff",
+      "quaternary": "00ff80",
+      "header_background": "161b22",
+      "header_primary": "f0f6fc",
+      "highlight": "0080ff",
+      "selected": "1f2a38",
+      "hover": "1a2230"
     },
-    "Canvas Dark": {
-      "primary": "dddddd",
-      "secondary": "222222",
-      "tertiary": "099dd7",
-      "quaternary": "c14924",
-      "header_background": "111111",
-      "header_primary": "dddddd",
-      "highlight": "a87137",
-      "selected": "052e3d",
-      "hover": "313131"
+    "Parch Light": {
+      "primary": "1f2328",
+      "secondary": "ffffff",
+      "tertiary": "007acc",
+      "quaternary": "00a854",
+      "header_background": "f6f8fa",
+      "header_primary": "1f2328",
+      "highlight": "e0f7fa",
+      "selected": "e6f4ff",
+      "hover": "f3f4f6"
+    },
+    "Parch Neon Violet": {
+      "primary": "f3e8ff",
+      "secondary": "0f0c1b",
+      "tertiary": "b000cc",
+      "quaternary": "00eaff",
+      "header_background": "18122b",
+      "header_primary": "f3e8ff",
+      "highlight": "8500b2",
+      "selected": "2d1b4e",
+      "hover": "231a3d"
+    },
+    "Parch Cyber OLED": {
+      "primary": "f0f6fc",
+      "secondary": "000000",
+      "tertiary": "00eaff",
+      "quaternary": "00ff80",
+      "header_background": "0a0a0a",
+      "header_primary": "ffffff",
+      "highlight": "0080ff",
+      "selected": "111827",
+      "hover": "161b22"
     }
   },
-  "components": [
-    "https://gitlab.com/manuelkostka/discourse/canvas/component.git",
-    "https://gitlab.com/manuelkostka/discourse/components/extra-banners.git",
-    "https://github.com/discourse/discourse-category-banners.git",
-    "https://github.com/discourse/discourse-tag-banners.git"
-  ]
+  "components": []
 }

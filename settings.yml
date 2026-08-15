@@ -1,0 +1,59 @@
+enable_parch_banner:
+  default: true
+  type: bool
+  description: "Display the modern Parch Linux hero banner on discovery pages (Latest, Categories, Top)."
+
+banner_title:
+  default: "Welcome to Parch Linux"
+  type: string
+  description: "Heading text displayed in the community hero banner."
+
+banner_subtitle:
+  default: "A fast, lightweight, and beautiful Linux distribution based on Arch Linux. Connect with the community, get help, and contribute."
+  type: string
+  description: "Subtitle description text for the hero banner."
+
+banner_download_url:
+  default: "https://parchlinux.com/download"
+  type: string
+  description: "URL for the 'Download Parch' button in the banner."
+
+banner_wiki_url:
+  default: "https://wiki.parchlinux.com"
+  type: string
+  description: "URL for the 'Documentation & Wiki' button in the banner."
+
+banner_github_url:
+  default: "https://github.com/parchlinux"
+  type: string
+  description: "URL for the GitHub repository button."
+
+banner_telegram_url:
+  default: "https://t.me/parchlinux"
+  type: string
+  description: "URL for the community Telegram group link."
+
+enable_terminal_codeblocks:
+  default: true
+  type: bool
+  description: "Style code blocks as sleek Linux terminal windows with window controls and font ligature support."
+
+enable_glassmorphism:
+  default: true
+  type: bool
+  description: "Enable backdrop blur and frosted glass surfaces for header, cards, and dropdowns."
+
+enable_topic_hover_cards:
+  default: true
+  type: bool
+  description: "Add smooth elevated card styling and Parch gradient hover accents to topic list rows."
+
+enable_parch_badge_glow:
+  default: true
+  type: bool
+  description: "Add subtle glowing neon accents to badges, active nav pills, and category dots."
+
+custom_header_links:
+  default: true
+  type: bool
+  description: "Add quick links (Website, Wiki, GitHub, Packages) to the main navigation header."

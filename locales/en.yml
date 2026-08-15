@@ -1,3 +1,21 @@
 en:
   theme_metadata:
-    description: "The forkable base theme for the Canvas theme template."
+    description: "A fast, modern, and beautiful theme tailored for Parch Linux Discourse, featuring Parch gradient accents, Linux terminal code blocks, and an interactive hero banner."
+  parch_theme:
+    banner:
+      title: "Welcome to Parch Linux"
+      subtitle: "A fast, lightweight, and beautiful Linux distribution based on Arch Linux."
+      download: "Download Parch"
+      wiki: "Wiki & Docs"
+      github: "GitHub"
+      telegram: "Community Chat"
+      status: "Arch-Based Rolling Release"
+    codeblock:
+      terminal_title: "parch-terminal"
+      copy: "Copy"
+      copied: "Copied!"
+    nav:
+      website: "Parch OS"
+      wiki: "Wiki"
+      packages: "Packages"
+      github: "GitHub"
