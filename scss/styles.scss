@@ -668,8 +668,10 @@ aside.quote {
   }
 }
 
-/* Collapsible details/summary blocks */
-details {
+/* Collapsible details/summary blocks (scoped to post content so Discourse's
+   own <details>-based components like select-kit dropdowns stay untouched) */
+.cooked details,
+.d-editor-preview details {
   border: 1px solid var(--primary-low);
   border-radius: var(--d-border-radius);
   background: var(--primary-very-low);
