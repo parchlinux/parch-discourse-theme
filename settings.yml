@@ -1,38 +1,3 @@
-enable_parch_banner:
-  default: true
-  type: bool
-  description: "Display the modern Parch Linux hero banner on discovery pages (Latest, Categories, Top)."
-
-banner_title:
-  default: "Welcome to Parch Linux"
-  type: string
-  description: "Heading text displayed in the community hero banner."
-
-banner_subtitle:
-  default: "A fast, lightweight, and beautiful Linux distribution based on Arch Linux. Connect with the community, get help, and contribute."
-  type: string
-  description: "Subtitle description text for the hero banner."
-
-banner_download_url:
-  default: "https://parchlinux.com/download"
-  type: string
-  description: "URL for the 'Download ISO' button in the banner."
-
-banner_wiki_url:
-  default: "https://wiki.parchlinux.com"
-  type: string
-  description: "URL for the 'Documentation & Wiki' button in the banner."
-
-banner_github_url:
-  default: "https://github.com/parchlinux"
-  type: string
-  description: "URL for the GitHub repository button."
-
-banner_telegram_url:
-  default: "https://t.me/parchlinux"
-  type: string
-  description: "URL for the Telegram community group link."
-
 enable_terminal_codeblocks:
   default: true
   type: bool

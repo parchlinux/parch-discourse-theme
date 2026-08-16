@@ -1,15 +1,7 @@
 en:
   theme_metadata:
-    description: "A fast, modern, and beautiful theme tailored for Parch Linux Discourse, featuring Parch gradient accents, Linux terminal code blocks, and an interactive hero banner."
+    description: "A fast, modern, and beautiful theme tailored for Parch Linux Discourse, featuring Parch gradient accents, Linux terminal code blocks, glassmorphic surfaces, and a modern category showcase with logos."
   parch_theme:
-    banner:
-      title: "Welcome to Parch Linux"
-      subtitle: "A fast, lightweight, and beautiful Linux distribution based on Arch Linux."
-      download: "Download ISO"
-      wiki: "Wiki & Docs"
-      github: "GitHub"
-      telegram: "Telegram"
-      status: "Arch-Based Rolling Release"
     codeblock:
       terminal_title: "parch-terminal"
       copy: "Copy"

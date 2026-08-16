@@ -1,6 +1,6 @@
 # Parch Linux Discourse Theme
 
-A modern, fast, and sleek Discourse theme designed specifically for the **Parch Linux** community. Built using the authentic Parch Linux color palette (`#00EAFF` Cyan, `#0080FF` Azure Blue, `#00FF80` Neon Green, and `#8500B2`/`#B000CC` Violet accents), glassmorphic elements, Linux terminal code blocks, and an interactive community hero banner.
+A modern, fast, and sleek Discourse theme designed specifically for the **Parch Linux** community. Built using the authentic Parch Linux color palette (`#00EAFF` Cyan, `#0080FF` Azure Blue, `#00FF80` Neon Green, and `#8500B2`/`#B000CC` Violet accents), glassmorphic elements, Linux terminal code blocks, and a modern category showcase with category logos.
 
 ---
 
@@ -15,8 +15,7 @@ A modern, fast, and sleek Discourse theme designed specifically for the **Parch 
 
 ## 🚀 Key Features
 
-- **Parch Hero Community Banner**: Interactive banner on discovery pages featuring quick links with crisp SVG icons to download the Parch Linux ISO, Wiki/Documentation, GitHub repos, and Telegram chat.
-- **Bento Grid Category Cards**: Modern Bento-style grid for `/categories` featuring custom glowing indicator bars, topic/post counter pills, and smooth hover elevation.
+- **Category Showcase with Logos**: Modern grid for `/categories` where every card shows a logo plate (or an auto-generated monogram tile in the category's own accent color), topic/post counter pills, and subcategory chips.
 - **Linux Terminal Code Blocks & Command Helper**:
   - Automatically formats code blocks into sleek Linux terminal windows with macOS/Linux 3-dot window controls and one-click copy.
   - Automatically detects root commands (`sudo`, `#`) vs user commands (`$`) and renders appropriate prompt indicators.
@@ -24,8 +23,10 @@ A modern, fast, and sleek Discourse theme designed specifically for the **Parch 
 - **Modern Floating Header**: Frosted glass backdrop blur with refined search bar.
 - **Polished User Titles & Badges**: Clean typography and subtle badges with full support for Persian (e.g. `تیم پارچ`), RTL, and LTR scripts.
 - **Card-Style Topic List**: Elevated topic cards with smooth hover lift micro-animations, Parch unread indicators, and category halos.
+- **Post Content Polish**: Card-style tables with horizontal scroll on mobile, custom `details`/`summary` collapsibles, themed scrollbars, and visible focus rings.
 - **Polished Typography**: Native integration with Google Fonts (*Estedad*, *Work Sans*, and *JetBrains Mono*).
 - **Responsive & Mobile-First**: Optimized touch targets, compact rows, and responsive terminal code blocks.
+- **Reduced Motion Support**: All animations and hover effects respect the user's `prefers-reduced-motion` setting.
 
 ---
 
@@ -35,13 +36,6 @@ Configure these settings in the Discourse Admin panel (**Admin > Customize > The
 
 | Setting | Default | Description |
 |---|---|---|
-| `enable_parch_banner` | `true` | Show/hide the community hero banner on discovery pages |
-| `banner_title` | `"Welcome to Parch Linux"` | Headline title for the hero banner |
-| `banner_subtitle` | `"A fast, lightweight, and beautiful Linux distribution..."` | Subtitle description |
-| `banner_download_url` | `"https://parchlinux.com/download"` | URL for the Download ISO button |
-| `banner_wiki_url` | `"https://wiki.parchlinux.com"` | URL for the Documentation & Wiki button |
-| `banner_github_url` | `"https://github.com/parchlinux"` | URL for GitHub repositories |
-| `banner_telegram_url` | `"https://t.me/parchlinux"` | URL for the Telegram community group |
 | `enable_terminal_codeblocks` | `true` | Format code blocks as Linux terminals with command helper |
 | `enable_glassmorphism` | `true` | **Beta.** Frosted glass surfaces and ambient background on header and cards |
 
