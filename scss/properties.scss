@@ -1,41 +1,46 @@
+// Scheme-aware brand colors (light gets deeper, more readable accents)
+$parch-cyan: dark-light-choose(#007a99, #00eaff);
+$parch-cyan-hover: dark-light-choose(#006b8e, #33eeff);
+$parch-green: dark-light-choose(#008a4c, #00ff80);
+$parch-blue: dark-light-choose(#0060c0, #0080ff);
+
 :root {
   /* ==========================================================================
      Parch Linux Color System & Tokens
      ========================================================================== */
-  --parch-cyan: #00eaff;
-  --parch-cyan-hover: #33eeff;
-  --parch-cyan-muted: rgba(0, 234, 255, 0.12);
-  --parch-cyan-border: rgba(0, 234, 255, 0.28);
+  --parch-cyan: #{$parch-cyan};
+  --parch-cyan-hover: #{$parch-cyan-hover};
+  --parch-cyan-muted: #{dark-light-choose(rgba(0, 122, 153, 0.12), rgba(0, 234, 255, 0.12))};
+  --parch-cyan-border: #{dark-light-choose(rgba(0, 122, 153, 0.32), rgba(0, 234, 255, 0.28))};
 
-  --parch-green: #00ff80;
-  --parch-green-muted: rgba(0, 255, 128, 0.12);
-  
-  --parch-blue: #0080ff;
-  --parch-blue-muted: rgba(0, 128, 255, 0.12);
+  --parch-green: #{$parch-green};
+  --parch-green-muted: #{dark-light-choose(rgba(0, 138, 76, 0.12), rgba(0, 255, 128, 0.12))};
+
+  --parch-blue: #{$parch-blue};
+  --parch-blue-muted: #{dark-light-choose(rgba(0, 96, 192, 0.12), rgba(0, 128, 255, 0.12))};
 
   --parch-purple: #8500b2;
   --parch-violet: #b000cc;
 
   /* Sophisticated Gradients */
-  --parch-gradient-brand: linear-gradient(135deg, #00eaff 0%, #0080ff 50%, #00ff80 100%);
-  --parch-gradient-subtle: linear-gradient(135deg, rgba(0, 234, 255, 0.08) 0%, rgba(0, 128, 255, 0.05) 50%, rgba(0, 255, 128, 0.08) 100%);
-  --parch-gradient-border: linear-gradient(135deg, rgba(0, 234, 255, 0.3) 0%, rgba(0, 128, 255, 0.15) 50%, rgba(0, 255, 128, 0.3) 100%);
-  --parch-gradient-dark-card: linear-gradient(180deg, rgba(22, 28, 38, 0.7) 0%, rgba(14, 18, 26, 0.85) 100%);
+  --parch-gradient-brand: linear-gradient(135deg, #{$parch-cyan} 0%, #{$parch-blue} 50%, #{$parch-green} 100%);
+  --parch-gradient-subtle: linear-gradient(
+    135deg,
+    #{dark-light-choose(rgba(0, 122, 153, 0.08), rgba(0, 234, 255, 0.08))} 0%,
+    #{dark-light-choose(rgba(0, 96, 192, 0.05), rgba(0, 128, 255, 0.05))} 50%,
+    #{dark-light-choose(rgba(0, 138, 76, 0.08), rgba(0, 255, 128, 0.08))} 100%
+  );
 
   /* Surface & Glass Tokens */
-  --parch-surface-card: var(--secondary);
-  --parch-surface-elevated: var(--primary-very-low);
-  --parch-border-subtle: 1px solid rgba(255, 255, 255, 0.07);
-  --parch-glass-bg: rgba(14, 18, 26, 0.72);
+  --parch-glass-bg: #{dark-light-choose(rgba(255, 255, 255, 0.72), rgba(14, 18, 26, 0.72))};
   --parch-glass-blur: blur(16px);
-  --parch-glass-border: 1px solid rgba(255, 255, 255, 0.08);
+  --parch-glass-border: #{dark-light-choose(1px solid rgba(0, 0, 0, 0.06), 1px solid rgba(255, 255, 255, 0.08))};
 
   /* Shadows & Depth */
   --parch-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
   --parch-shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
   --parch-shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.22);
-  --parch-shadow-cyan-sm: 0 0 16px rgba(0, 234, 255, 0.18);
-  --parch-shadow-button: 0 4px 14px rgba(0, 234, 255, 0.25);
+  --parch-shadow-button: 0 4px 14px #{dark-light-choose(rgba(0, 122, 153, 0.25), rgba(0, 234, 255, 0.25))};
 
   /* Layout & Geometry */
   --d-max-width: 1220px;
@@ -50,9 +55,6 @@
 
   /* Header & Navigation */
   --canvas-header-height: 4.25rem;
-  --canvas-header-background: var(--header_background);
-  --canvas-nav-space: 0.85rem;
-  --canvas-content-padding: 1.5rem;
   --canvas-topic-list-padding: 0.9em;
 
   /* Animation Timings */

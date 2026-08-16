@@ -14,3 +14,4 @@ en:
       terminal_title: "parch-terminal"
       copy: "Copy"
       copied: "Copied!"
+      copy_failed: "Failed"

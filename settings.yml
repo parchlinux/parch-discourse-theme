@@ -41,4 +41,4 @@ enable_terminal_codeblocks:
 enable_glassmorphism:
   default: true
   type: bool
-  description: "Enable backdrop blur and frosted glass surfaces for header, cards, and dropdowns."
+  description: "BETA. Enable frosted glass surfaces and an ambient gradient background for the header, cards, and dropdowns. May impact performance on low-end mobile devices."

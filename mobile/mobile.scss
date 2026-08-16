@@ -73,6 +73,11 @@
 
     .parch-terminal-header {
       padding: 0.45rem 0.75rem;
+
+      .parch-copy-btn {
+        min-height: 36px;
+        padding: 0.3rem 0.7rem;
+      }
     }
 
     pre code {

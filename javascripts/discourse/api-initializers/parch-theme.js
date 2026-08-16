@@ -2,6 +2,48 @@ import { apiInitializer } from "discourse/lib/api";
 import { i18n } from "discourse-i18n";
 
 export default apiInitializer((api) => {
+  // Translation helper that returns the fallback when the key is missing
+  const t = (key, fallback) => {
+    const fullKey = themePrefix(key);
+    const value = i18n(fullKey);
+    return value && value !== fullKey ? value : fallback;
+  };
+
+  const escapeHtml = (str) =>
+    String(str).replace(
+      /[&<>"']/g,
+      (c) =>
+        ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]
+    );
+
+  const copyText = (text) => {
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(text);
+    }
+    return new Promise((resolve, reject) => {
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand("copy") ? resolve() : reject(new Error("copy failed"));
+      } catch (err) {
+        reject(err);
+      } finally {
+        document.body.removeChild(textarea);
+      }
+    });
+  };
+
+  // Glassmorphism (beta): the `.parch-glass` class drives the frosted
+  // surfaces defined in common.scss
+  if (settings.enable_glassmorphism) {
+    document.documentElement.classList.add("parch-glass");
+  }
+
   // SVG Icons
   const ICONS = {
     terminal: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>`,
@@ -48,25 +90,37 @@ export default apiInitializer((api) => {
           <span class="ctrl-dot green"></span>
         `;
 
+        const terminalTitle = t("codeblock.terminal_title", "parch-terminal");
         const title = document.createElement("span");
         title.className = "parch-terminal-title";
         title.innerHTML = `
           ${ICONS.terminal}
-          <span>parch ~ <span class="prompt-indicator ${promptClass}">${promptSymbol}</span></span>
+          <span>${escapeHtml(terminalTitle)} ~ <span class="prompt-indicator ${promptClass}">${promptSymbol}</span></span>
         `;
+
+        const copyLabel = t("codeblock.copy", "Copy");
+        const copiedLabel = t("codeblock.copied", "Copied!");
+        const failedLabel = t("codeblock.copy_failed", "Failed");
 
         const copyBtn = document.createElement("button");
         copyBtn.className = "parch-copy-btn";
         copyBtn.type = "button";
-        copyBtn.innerHTML = `${ICONS.copy} <span>${i18n(themePrefix("parch_theme.codeblock.copy")) || "Copy"}</span>`;
+        copyBtn.innerHTML = `${ICONS.copy} <span>${copyLabel}</span>`;
+
+        const restoreCopyLabel = () => {
+          copyBtn.innerHTML = `${ICONS.copy} <span>${copyLabel}</span>`;
+        };
 
         copyBtn.addEventListener("click", () => {
-          navigator.clipboard.writeText(codeText).then(() => {
-            copyBtn.innerHTML = `${ICONS.check} <span>${i18n(themePrefix("parch_theme.codeblock.copied")) || "Copied!"}</span>`;
-            setTimeout(() => {
-              copyBtn.innerHTML = `${ICONS.copy} <span>${i18n(themePrefix("parch_theme.codeblock.copy")) || "Copy"}</span>`;
-            }, 2000);
-          });
+          copyText(codeText)
+            .then(() => {
+              copyBtn.innerHTML = `${ICONS.check} <span>${copiedLabel}</span>`;
+              setTimeout(restoreCopyLabel, 2000);
+            })
+            .catch(() => {
+              copyBtn.innerHTML = `${ICONS.check} <span>${failedLabel}</span>`;
+              setTimeout(restoreCopyLabel, 2000);
+            });
         });
 
         header.appendChild(controls);
@@ -98,17 +152,37 @@ export default apiInitializer((api) => {
     if (isDiscovery && !existingBanner) {
       const mainOutlet = document.querySelector("#main-outlet");
       if (mainOutlet) {
+        const title = escapeHtml(
+          settings.banner_title || t("banner.title", "Welcome to Parch Linux")
+        );
+        const subtitle = escapeHtml(
+          settings.banner_subtitle ||
+            t(
+              "banner.subtitle",
+              "A fast, lightweight, and beautiful Linux distribution based on Arch Linux."
+            )
+        );
+        const badge = t("banner.status", "Arch-Based Rolling Release");
+        const downloadUrl = escapeHtml(settings.banner_download_url);
+        const wikiUrl = escapeHtml(settings.banner_wiki_url);
+        const githubUrl = escapeHtml(settings.banner_github_url);
+        const telegramUrl = escapeHtml(settings.banner_telegram_url);
+        const downloadLabel = t("banner.download", "Download ISO");
+        const wikiLabel = t("banner.wiki", "Wiki & Docs");
+        const githubLabel = t("banner.github", "GitHub");
+        const telegramLabel = t("banner.telegram", "Telegram");
+
         const banner = document.createElement("div");
         banner.className = "parch-hero-banner";
         banner.innerHTML = `
           <div class="parch-banner-badge">
             <span class="dot"></span>
-            <span>${i18n(themePrefix("parch_theme.banner.status")) || "Arch-Based Rolling Release"}</span>
+            <span>${badge}</span>
           </div>
           <div class="parch-banner-content">
             <div class="parch-banner-text">
-              <h1>${settings.banner_title || "Welcome to Parch Linux"}</h1>
-              <p>${settings.banner_subtitle || "A fast, lightweight, and beautiful Linux distribution based on Arch Linux."}</p>
+              <h1>${title}</h1>
+              <p>${subtitle}</p>
             </div>
             <div class="parch-banner-logo">
               <svg width="76" height="76" viewBox="0 0 438 438" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -121,21 +195,21 @@ export default apiInitializer((api) => {
             </div>
           </div>
           <div class="parch-banner-actions">
-            <a href="${settings.banner_download_url}" class="btn-parch-primary" target="_blank" rel="noopener noreferrer">
+            <a href="${downloadUrl}" class="btn-parch-primary" target="_blank" rel="noopener noreferrer">
               ${ICONS.download}
-              <span>${i18n(themePrefix("parch_theme.banner.download")) || "Download ISO"}</span>
+              <span>${downloadLabel}</span>
             </a>
-            <a href="${settings.banner_wiki_url}" class="btn-parch-secondary" target="_blank" rel="noopener noreferrer">
+            <a href="${wikiUrl}" class="btn-parch-secondary" target="_blank" rel="noopener noreferrer">
               ${ICONS.docs}
-              <span>${i18n(themePrefix("parch_theme.banner.wiki")) || "Wiki & Docs"}</span>
+              <span>${wikiLabel}</span>
             </a>
-            <a href="${settings.banner_github_url}" class="btn-parch-secondary" target="_blank" rel="noopener noreferrer">
+            <a href="${githubUrl}" class="btn-parch-secondary" target="_blank" rel="noopener noreferrer">
               ${ICONS.github}
-              <span>${i18n(themePrefix("parch_theme.banner.github")) || "GitHub"}</span>
+              <span>${githubLabel}</span>
             </a>
-            <a href="${settings.banner_telegram_url}" class="btn-parch-secondary" target="_blank" rel="noopener noreferrer">
+            <a href="${telegramUrl}" class="btn-parch-secondary" target="_blank" rel="noopener noreferrer">
               ${ICONS.chat}
-              <span>${i18n(themePrefix("parch_theme.banner.telegram")) || "Telegram"}</span>
+              <span>${telegramLabel}</span>
             </a>
           </div>
         `;

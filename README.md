@@ -24,7 +24,7 @@ A modern, fast, and sleek Discourse theme designed specifically for the **Parch 
 - **Modern Floating Header**: Frosted glass backdrop blur with refined search bar.
 - **Polished User Titles & Badges**: Clean typography and subtle badges with full support for Persian (e.g. `تیم پارچ`), RTL, and LTR scripts.
 - **Card-Style Topic List**: Elevated topic cards with smooth hover lift micro-animations, Parch unread indicators, and category halos.
-- **Polished Typography**: Native integration with Google Fonts (*Inter*, *Plus Jakarta Sans*, and *JetBrains Mono*).
+- **Polished Typography**: Native integration with Google Fonts (*Estedad*, *Work Sans*, and *JetBrains Mono*).
 - **Responsive & Mobile-First**: Optimized touch targets, compact rows, and responsive terminal code blocks.
 
 ---
@@ -43,7 +43,7 @@ Configure these settings in the Discourse Admin panel (**Admin > Customize > The
 | `banner_github_url` | `"https://github.com/parchlinux"` | URL for GitHub repositories |
 | `banner_telegram_url` | `"https://t.me/parchlinux"` | URL for the Telegram community group |
 | `enable_terminal_codeblocks` | `true` | Format code blocks as Linux terminals with command helper |
-| `enable_glassmorphism` | `true` | Frosted glass effect on header and cards |
+| `enable_glassmorphism` | `true` | **Beta.** Frosted glass surfaces and ambient background on header and cards |
 
 ---
 
