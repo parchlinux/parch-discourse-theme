@@ -199,7 +199,8 @@ export default apiInitializer((api) => {
 
       const titleEl = box.querySelector("h3");
       const name = (titleEl?.textContent || "").trim();
-      const letter = [...name].find((ch) => /\S/.test(ch)) || "?";
+      const firstChar = [...name].find((ch) => /\S/.test(ch)) || "?";
+      const letter = firstChar.toUpperCase();
       const inner = box.querySelector(":scope > .category-box-inner") || box;
 
       const mono = document.createElement("span");

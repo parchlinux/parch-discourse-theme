@@ -32,24 +32,32 @@ $parch-blue: dark-light-choose(#0060c0, #0080ff);
   );
 
   /* Surface & Glass Tokens */
-  --parch-glass-bg: #{dark-light-choose(rgba(255, 255, 255, 0.72), rgba(14, 18, 26, 0.72))};
+  --parch-card-bg: #{dark-light-choose(#ffffff, #121824)};
+  --parch-card-hover-bg: #{dark-light-choose(#f8fafc, #161e2e)};
+  --parch-card-border: #{dark-light-choose(rgba(0, 0, 0, 0.08), rgba(255, 255, 255, 0.08))};
+  --parch-card-border-hover: #{dark-light-choose(rgba(0, 122, 153, 0.35), rgba(0, 234, 255, 0.35))};
+  --parch-glass-bg: #{dark-light-choose(rgba(255, 255, 255, 0.8), rgba(14, 18, 26, 0.8))};
   --parch-glass-blur: blur(16px);
-  --parch-glass-border: #{dark-light-choose(1px solid rgba(0, 0, 0, 0.06), 1px solid rgba(255, 255, 255, 0.08))};
+  --parch-glass-border: #{dark-light-choose(1px solid rgba(0, 0, 0, 0.08), 1px solid rgba(255, 255, 255, 0.1))};
 
-  /* Shadows & Depth */
-  --parch-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  /* Shadows, Glows & Depth */
+  --parch-shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --parch-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
   --parch-shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
   --parch-shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.22);
+  --parch-shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.14), 0 0 0 1px #{dark-light-choose(rgba(0, 122, 153, 0.2), rgba(0, 234, 255, 0.2))};
   --parch-shadow-button: 0 4px 14px #{dark-light-choose(rgba(0, 122, 153, 0.25), rgba(0, 234, 255, 0.25))};
+  --parch-glow-sm: 0 0 12px #{dark-light-choose(rgba(0, 122, 153, 0.22), rgba(0, 234, 255, 0.25))};
+  --parch-glow-cyan: 0 0 22px #{dark-light-choose(rgba(0, 122, 153, 0.25), rgba(0, 234, 255, 0.3))};
 
   /* Layout & Geometry */
   --d-max-width: 1220px;
-  --d-border-radius: 10px;
-  --d-border-radius-large: 16px;
-  --d-button-border-radius: 9px;
-  --d-input-border-radius: 9px;
-  --d-nav-pill-border-radius: 9px;
-  --d-sidebar-border-radius: 9px;
+  --d-border-radius: 12px;
+  --d-border-radius-large: 18px;
+  --d-button-border-radius: 10px;
+  --d-input-border-radius: 10px;
+  --d-nav-pill-border-radius: 10px;
+  --d-sidebar-border-radius: 10px;
   --d-sidebar-width: 17.5em;
   --d-sidebar-row-height: 2.4em;
 
@@ -58,10 +66,10 @@ $parch-blue: dark-light-choose(#0060c0, #0080ff);
   --header-offset: var(--d-header-height, 4.25rem);
   --parch-header-height: var(--d-header-height, 4.25rem);
   --canvas-header-height: var(--d-header-height, 4.25rem);
-  --canvas-topic-list-padding: 0.9em;
+  --canvas-topic-list-padding: 0.95em;
 
   /* Animation Timings */
   --parch-ease: cubic-bezier(0.16, 1, 0.3, 1);
-  --parch-trans-fast: 0.15s var(--parch-ease);
-  --parch-trans-normal: 0.25s var(--parch-ease);
+  --parch-trans-fast: 0.16s var(--parch-ease);
+  --parch-trans-normal: 0.26s var(--parch-ease);
 }

@@ -6,11 +6,19 @@
   }
 
   .navigation-container {
-    flex-wrap: wrap;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
     gap: 0.5rem;
+
+    .nav-pills {
+      flex-shrink: 0;
+    }
   }
 
-  /* Category showcase cards stack full width */
+  /* Category showcase cards stack full width with sleek padding */
   .category-boxes,
   .category-boxes-with-topics {
     grid-template-columns: 1fr;
@@ -18,7 +26,7 @@
 
     .category-box {
       .category-box-inner {
-        padding: 1.1rem 1.1rem 1rem;
+        padding: 1.25rem 1.15rem 1.1rem;
       }
     }
   }
@@ -30,15 +38,20 @@
       border-radius: var(--d-border-radius);
 
       td {
-        padding: 0.75rem 0.85rem;
+        padding: 0.8rem 0.9rem;
       }
     }
   }
 
   /* Post controls & avatars */
   .topic-post article.boxed {
-    padding: 1rem;
+    padding: 1.1rem 1rem;
     margin-bottom: 1rem;
+  }
+
+  /* Reply composer on mobile */
+  #reply-control {
+    border-radius: 16px 16px 0 0;
   }
 
   /* Code block overflow on mobile */
@@ -47,16 +60,16 @@
     border-radius: 8px;
 
     .parch-terminal-header {
-      padding: 0.45rem 0.75rem;
+      padding: 0.5rem 0.8rem;
 
       .parch-copy-btn {
         min-height: 36px;
-        padding: 0.3rem 0.7rem;
+        padding: 0.3rem 0.75rem;
       }
     }
 
     pre code {
-      padding: 0.85rem 1rem !important;
+      padding: 0.9rem 1.05rem !important;
       font-size: 0.82rem !important;
     }
   }
