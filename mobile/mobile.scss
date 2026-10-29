@@ -54,6 +54,32 @@
     border-radius: 16px 16px 0 0;
   }
 
+  /* Mobile / Android Create Topic button prominence */
+  #create-topic,
+  #new-create-topic,
+  button#create-topic,
+  .navigation-controls #create-topic,
+  .floating-action-button,
+  .floating-action-button button {
+    min-height: 42px;
+    padding: 0.45rem 1.05rem !important;
+    font-size: 0.92rem !important;
+    background: var(--parch-gradient-brand) !important;
+    color: var(--parch-btn-primary-color, #0b0f14) !important;
+    border: 1px solid var(--parch-cyan-border) !important;
+    box-shadow: 0 4px 16px rgba(0, 234, 255, 0.45), 0 2px 6px rgba(0, 0, 0, 0.3) !important;
+
+    .d-icon {
+      color: var(--parch-btn-primary-color, #0b0f14) !important;
+      fill: currentColor !important;
+    }
+
+    .d-button-label {
+      color: var(--parch-btn-primary-color, #0b0f14) !important;
+      font-weight: 700 !important;
+    }
+  }
+
   /* Code block overflow on mobile */
   .parch-terminal-wrap {
     margin: 1rem -0.5rem;

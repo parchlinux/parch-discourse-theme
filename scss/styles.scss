@@ -991,7 +991,7 @@ body,
    -------------------------------------------------------------------------- */
 .btn-primary {
   background: var(--parch-gradient-brand);
-  color: #0b0f14 !important;
+  color: var(--parch-btn-primary-color, #0b0f14) !important;
   font-weight: 600;
   border: none;
   border-radius: var(--d-button-border-radius);
@@ -999,7 +999,12 @@ body,
   transition: all var(--parch-trans-fast);
 
   .d-icon {
-    color: #0b0f14;
+    color: var(--parch-btn-primary-color, #0b0f14) !important;
+    fill: currentColor !important;
+  }
+
+  .d-button-label {
+    color: var(--parch-btn-primary-color, #0b0f14) !important;
   }
 
   &:hover {
@@ -1009,6 +1014,52 @@ body,
 
   &:active {
     transform: translateY(0);
+  }
+}
+
+/* Create Topic Primary Action (Desktop, Mobile & Android) */
+#create-topic,
+#new-create-topic,
+button#create-topic,
+.btn-primary#create-topic,
+.navigation-controls #create-topic,
+.list-controls #create-topic,
+.floating-action-button,
+.floating-action-button button {
+  background: var(--parch-gradient-brand) !important;
+  color: var(--parch-btn-primary-color, #0b0f14) !important;
+  font-weight: 700 !important;
+  border: 1px solid var(--parch-cyan-border) !important;
+  border-radius: var(--d-button-border-radius, 10px) !important;
+  box-shadow: 0 4px 14px rgba(0, 234, 255, 0.35), 0 2px 6px rgba(0, 0, 0, 0.2) !important;
+  transition: all var(--parch-trans-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  opacity: 1 !important;
+  visibility: visible !important;
+
+  .d-icon {
+    color: var(--parch-btn-primary-color, #0b0f14) !important;
+    fill: currentColor !important;
+    font-size: 1.05em;
+  }
+
+  .d-button-label {
+    color: var(--parch-btn-primary-color, #0b0f14) !important;
+    font-weight: 700 !important;
+  }
+
+  &:hover {
+    background: linear-gradient(135deg, var(--parch-cyan-hover, #33eeff) 0%, var(--parch-cyan, #00eaff) 100%) !important;
+    box-shadow: 0 6px 20px rgba(0, 234, 255, 0.5), 0 0 16px rgba(0, 255, 128, 0.35) !important;
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 234, 255, 0.3) !important;
   }
 }
 

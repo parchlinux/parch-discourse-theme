@@ -24,6 +24,7 @@ $parch-blue: dark-light-choose(#0060c0, #0080ff);
 
   /* Sophisticated Gradients */
   --parch-gradient-brand: linear-gradient(135deg, #{$parch-cyan} 0%, #{$parch-blue} 50%, #{$parch-green} 100%);
+  --parch-btn-primary-color: #{dark-light-choose(#ffffff, #0b0f14)};
   --parch-gradient-subtle: linear-gradient(
     135deg,
     #{dark-light-choose(rgba(0, 122, 153, 0.08), rgba(0, 234, 255, 0.08))} 0%,
