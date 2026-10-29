@@ -12,9 +12,33 @@
     -webkit-overflow-scrolling: touch;
     padding-bottom: 4px;
     gap: 0.5rem;
+    align-items: center;
 
     .nav-pills {
       flex-shrink: 0;
+      padding: 0.2rem;
+    }
+  }
+
+  /* Compact dropdown toggle button on Android / Mobile */
+  .list-control-toggle-link-trigger,
+  #navigation-bar .list-control-toggle-link-trigger,
+  .nav-pills .list-control-toggle-link-trigger {
+    height: 36px !important;
+    min-height: 36px !important;
+    max-height: 36px !important;
+    padding: 0.35rem 0.8rem !important;
+    font-size: 0.86rem !important;
+    font-weight: 600 !important;
+    width: auto !important;
+    max-width: fit-content !important;
+
+    .list-control-toggle-link__text {
+      font-size: 0.86rem !important;
+    }
+
+    .d-icon {
+      font-size: 0.8em !important;
     }
   }
 
