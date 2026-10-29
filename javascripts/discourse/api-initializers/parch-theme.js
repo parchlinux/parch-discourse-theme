@@ -74,6 +74,20 @@ export default apiInitializer((api) => {
     }
   };
 
+  const resetSidebarScroll = () => {
+    if (typeof document === "undefined") {
+      return;
+    }
+    const elements = document.querySelectorAll(
+      ".sidebar-wrapper, .sidebar-container, .sidebar-sections, #d-sidebar"
+    );
+    elements.forEach((el) => {
+      if (el.scrollTop > 0) {
+        el.scrollTop = 0;
+      }
+    });
+  };
+
   // Glassmorphism (beta): the `.parch-glass` class drives the frosted
   // surfaces defined in common.scss
   if (settings.enable_glassmorphism) {
@@ -200,9 +214,13 @@ export default apiInitializer((api) => {
 
   api.onPageChange((url) => {
     resetScrollIfDiscovery(url);
+    resetSidebarScroll();
     requestAnimationFrame(() => {
       applyCategoryMonograms();
       resetScrollIfDiscovery(url);
+      resetSidebarScroll();
     });
+    setTimeout(resetSidebarScroll, 120);
+    setTimeout(resetSidebarScroll, 350);
   });
 });

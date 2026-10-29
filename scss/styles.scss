@@ -778,7 +778,23 @@ body,
 /* --------------------------------------------------------------------------
    7. Sidebar Navigation
    -------------------------------------------------------------------------- */
+.sidebar-wrapper,
+.sidebar-container,
+.sidebar-sections {
+  overflow-anchor: none;
+}
+
 .sidebar-wrapper {
+  align-self: start;
+
+  .sidebar-container {
+    height: 100%;
+  }
+
+  .sidebar-sections {
+    scroll-behavior: auto !important;
+  }
+
   .sidebar-section-link-wrapper .sidebar-section-link,
   .sidebar-section-link {
     border-radius: var(--d-sidebar-border-radius);
