@@ -989,35 +989,13 @@ body,
 /* --------------------------------------------------------------------------
    8. Buttons & Form Controls
    -------------------------------------------------------------------------- */
-.btn-primary {
-  background: var(--parch-gradient-brand);
-  color: var(--parch-btn-primary-color, #0b0f14) !important;
-  font-weight: 600;
-  border: none;
-  border-radius: var(--d-button-border-radius);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-  transition: all var(--parch-trans-fast);
-
-  .d-icon {
-    color: var(--parch-btn-primary-color, #0b0f14) !important;
-    fill: currentColor !important;
-  }
-
-  .d-button-label {
-    color: var(--parch-btn-primary-color, #0b0f14) !important;
-  }
-
-  &:hover {
-    box-shadow: var(--parch-shadow-button);
-    transform: translateY(-1px);
-  }
-
-  &:active {
-    transform: translateY(0);
-  }
-}
-
-/* Create Topic Primary Action (Desktop, Mobile & Android) */
+.btn-primary,
+button.btn-primary,
+.btn.btn-primary,
+.btn-primary.create,
+button.btn.btn-primary.create,
+.save-or-cancel .btn-primary,
+#reply-control .btn-primary,
 #create-topic,
 #new-create-topic,
 button#create-topic,
@@ -1053,8 +1031,14 @@ button#create-topic,
 
   &:hover {
     background: linear-gradient(135deg, var(--parch-cyan-hover, #33eeff) 0%, var(--parch-cyan, #00eaff) 100%) !important;
+    color: var(--parch-btn-primary-color, #0b0f14) !important;
     box-shadow: 0 6px 20px rgba(0, 234, 255, 0.5), 0 0 16px rgba(0, 255, 128, 0.35) !important;
     transform: translateY(-1px);
+
+    .d-icon,
+    .d-button-label {
+      color: var(--parch-btn-primary-color, #0b0f14) !important;
+    }
   }
 
   &:active {
