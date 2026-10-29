@@ -4,7 +4,7 @@
   "about_url": "https://github.com/parchlinux",
   "license_url": "https://github.com/parchlinux",
   "learn_more": "https://parchlinux.com",
-  "theme_version": "1.0.0",
+  "theme_version": "1.1.0",
   "minimum_discourse_version": "3.2.0",
   "maximum_discourse_version": null,
   "assets": {

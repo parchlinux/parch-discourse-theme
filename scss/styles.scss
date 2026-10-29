@@ -9,11 +9,18 @@
 html {
   font-family: var(--font-family);
   letter-spacing: -0.012em;
+  scroll-padding-top: var(--header-offset, 4.25rem);
 }
 
 body {
   background-color: var(--secondary);
   color: var(--primary);
+}
+
+#main-outlet,
+#list-area,
+.list-controls {
+  scroll-margin-top: var(--header-offset, 4.25rem);
 }
 
 /* Keep the theme's relaxed reading rhythm for post content without
@@ -56,16 +63,22 @@ span > code:not(.badge-category-bg) {
 .d-header-wrap {
   position: sticky;
   top: 0;
+  width: 100%;
   z-index: 1000;
 }
 
 .d-header {
-  height: var(--canvas-header-height, 4.25rem);
+  height: var(--d-header-height, var(--canvas-header-height, 4.25rem));
+  width: 100%;
   background: var(--header_background);
   border-bottom: 1px solid var(--primary-low);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   position: relative;
   transition: background-color var(--parch-trans-normal), border-color var(--parch-trans-normal);
+
+  .wrap {
+    max-width: var(--d-max-width, 1220px);
+  }
 
   .contents {
     display: flex;
@@ -723,8 +736,16 @@ aside.quote {
   }
 }
 
-/* Custom scrollbars */
-* {
+/* Custom scrollbars scoped to actual scroll containers */
+html,
+body,
+.sidebar-wrapper,
+.d-menu,
+.menu-panel,
+.parch-terminal-wrap pre,
+.cooked table,
+.d-editor-preview table,
+.select-kit-body {
   scrollbar-width: thin;
   scrollbar-color: var(--primary-low-mid) transparent;
 }
@@ -758,7 +779,8 @@ aside.quote {
    7. Sidebar Navigation
    -------------------------------------------------------------------------- */
 .sidebar-wrapper {
-  .sidebar-section-link-wrapper .sidebar-section-link {
+  .sidebar-section-link-wrapper .sidebar-section-link,
+  .sidebar-section-link {
     border-radius: var(--d-sidebar-border-radius);
     transition: all var(--parch-trans-fast);
     margin: 2px 0;
@@ -774,6 +796,14 @@ aside.quote {
       font-weight: 600;
       border-inline-start: 3px solid var(--parch-cyan);
     }
+  }
+
+  .sidebar-section-header {
+    font-size: 0.76rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--primary-medium);
   }
 }
 
@@ -813,7 +843,34 @@ aside.quote {
   }
 }
 
-/* Compact navigation pills (Categories, Latest, New, Top, ...) */
+/* Modern navigation container & pills (Categories, Latest, New, Top, ...) */
+.navigation-container {
+  margin-block: 0.5rem 1rem;
+
+  .nav-pills {
+    gap: 0.35rem;
+
+    > li > a,
+    .nav-item_link {
+      border-radius: var(--d-nav-pill-border-radius);
+      font-weight: 500;
+      transition: all var(--parch-trans-fast);
+
+      &:hover {
+        background: var(--primary-low);
+        color: var(--parch-cyan);
+      }
+
+      &.active {
+        background: var(--parch-cyan-muted);
+        color: var(--parch-cyan) !important;
+        font-weight: 600;
+        box-shadow: inset 0 0 0 1px var(--parch-cyan-border);
+      }
+    }
+  }
+}
+
 .nav-pills > li > a {
   border-radius: var(--d-nav-pill-border-radius);
   font-weight: 500;
@@ -891,9 +948,17 @@ html.parch-glass {
     backdrop-filter: var(--parch-glass-blur);
   }
 
+  .d-menu,
+  .menu-panel,
+  .user-menu,
+  .quick-access-panel,
+  .d-header-dropdown,
   .fk-d-menu,
   .dropdown-menu {
     background: var(--parch-glass-bg);
+    border: var(--parch-glass-border);
+    border-radius: var(--d-border-radius, 10px);
+    box-shadow: var(--parch-shadow-lg);
     -webkit-backdrop-filter: var(--parch-glass-blur);
     backdrop-filter: var(--parch-glass-blur);
   }

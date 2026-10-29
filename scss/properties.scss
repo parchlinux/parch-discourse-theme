@@ -54,7 +54,10 @@ $parch-blue: dark-light-choose(#0060c0, #0080ff);
   --d-sidebar-row-height: 2.4em;
 
   /* Header & Navigation */
-  --canvas-header-height: 4.25rem;
+  --d-header-height: 4.25rem;
+  --header-offset: var(--d-header-height, 4.25rem);
+  --parch-header-height: var(--d-header-height, 4.25rem);
+  --canvas-header-height: var(--d-header-height, 4.25rem);
   --canvas-topic-list-padding: 0.9em;
 
   /* Animation Timings */

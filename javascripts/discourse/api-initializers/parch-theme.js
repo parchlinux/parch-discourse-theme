@@ -44,6 +44,36 @@ export default apiInitializer((api) => {
     });
   };
 
+  // Ensure the browser does not jump down to an arbitrary restored position on reload
+  if (typeof window !== "undefined" && window.history && "scrollRestoration" in window.history) {
+    try {
+      window.history.scrollRestoration = "manual";
+    } catch {
+      // Ignore if browser restricts
+    }
+  }
+
+  const resetScrollIfDiscovery = (url) => {
+    if (typeof window === "undefined") {
+      return;
+    }
+    const cleanUrl = (url || window.location.pathname || "").split("?")[0];
+    const isDiscoveryRoute =
+      cleanUrl === "/" ||
+      cleanUrl.startsWith("/latest") ||
+      cleanUrl.startsWith("/categories") ||
+      cleanUrl.startsWith("/top") ||
+      cleanUrl.startsWith("/new") ||
+      cleanUrl.startsWith("/unread") ||
+      cleanUrl.startsWith("/hot");
+
+    if (isDiscoveryRoute && !window.location.hash) {
+      if (window.scrollY > 0) {
+        window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+      }
+    }
+  };
+
   // Glassmorphism (beta): the `.parch-glass` class drives the frosted
   // surfaces defined in common.scss
   if (settings.enable_glassmorphism) {
@@ -168,7 +198,11 @@ export default apiInitializer((api) => {
     });
   };
 
-  api.onPageChange(() => {
-    requestAnimationFrame(applyCategoryMonograms);
+  api.onPageChange((url) => {
+    resetScrollIfDiscovery(url);
+    requestAnimationFrame(() => {
+      applyCategoryMonograms();
+      resetScrollIfDiscovery(url);
+    });
   });
 });

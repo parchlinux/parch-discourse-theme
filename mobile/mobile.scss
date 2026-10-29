@@ -5,6 +5,11 @@
     display: none !important;
   }
 
+  .navigation-container {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
   /* Category showcase cards stack full width */
   .category-boxes,
   .category-boxes-with-topics {
